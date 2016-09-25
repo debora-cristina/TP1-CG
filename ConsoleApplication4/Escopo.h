@@ -42,6 +42,11 @@ public:
 	void setCaixaY(float caixaPosY) {
 		caixaY = caixaPosY;
 	}
+
+	void setVelocidade(float velocidadePos) {
+		velocidade = velocidadePos;
+	}
+
 	float getCaixaX() {
 		return caixaX;
 	}
@@ -51,6 +56,10 @@ public:
 
 	int getColide() {
 		return colide;
+	}
+
+	float getVelocidade() {
+		return velocidade;
 	}
 
 	float getX() {

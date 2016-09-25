@@ -11,6 +11,9 @@ class Madeira : public Escopo {
 public:
 
 	Madeira() {
+		setCaixaX(130);
+		setCaixaY(50);
+		setColide(0);
 	}
 
 
@@ -38,6 +41,7 @@ public:
 
 		else {
 			setColide(1);
+			p1.setColideM(1);
 		}
 
 		/*if (p1.getX()<(x+caixaX) && p1.getY()<(y + caixaY))

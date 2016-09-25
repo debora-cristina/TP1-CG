@@ -1,16 +1,15 @@
-#pragma once
-// classes example
-#include <GL/glut.h>
 #include "Escopo.h"
+#include <GL/glut.h>
 #include "Personagem.h"
+class Caminhao : public Escopo {
 
-
-class Caminhao : public Escopo{
-	
 
 public:
 
 	Caminhao() {
+		setCaixaX(130);
+		setCaixaY(50);
+		setColide(0);
 	}
 
 	void colideTeste(Personagem p1)
@@ -83,6 +82,6 @@ public:
 
 	}
 
-	
+
 
 };

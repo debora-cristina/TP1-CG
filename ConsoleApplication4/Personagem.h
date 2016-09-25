@@ -6,7 +6,9 @@ class Personagem {
 	float x, y;
 	float width, height;
 	float caixaX, caixaY;
-	int life;
+	int life, colide, fase;
+	int colideM;
+
 
 public:
 
@@ -18,14 +20,25 @@ public:
 		caixaX = 30;
 		caixaY = 30;
 		life = 5;
+		//colide = 0;
+		fase = 1;
 
 	}
 
 	void setX(float xPos) {
 		x = xPos;
 	}
+
 	void setY(float yPos) {
 		y = yPos;
+	}
+
+	void setFase(float faseX) {
+		fase = faseX;
+	}
+
+	int getFase() {
+		return fase;
 	}
 	void setWidth(float widthC) {
 		width = widthC;
@@ -39,10 +52,17 @@ public:
 	void setCaixaY(float caixaPosY) {
 		caixaY = height;
 	}
-	void setLife(int lifeX) {
+	void setLife(float lifeX) {
 		life = lifeX;
 	}
 
+	void setColide(float colideX) {
+		colide = colideX;
+	}
+
+	void setColideM(int colideX) {
+		colideM = colideX;
+	}
 	int getLife() {
 		return life;
 	}
@@ -65,6 +85,13 @@ public:
 	float getCaixaY() {
 		return caixaY;
 	}
+	float getColide() {
+		return colide;
+	}
+	float getColideM() {
+		return colide;
+	}
+
 
 
 };
