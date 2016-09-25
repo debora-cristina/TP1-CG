@@ -400,7 +400,7 @@ void DesenhaVitoria() {
 	glEnd();
 
 
-	sprintf(texto, "Venci!!");
+	sprintf(texto, "TÔ VIVA!!");
 	DesenhaTexto(texto, GLUT_BITMAP_TIMES_ROMAN_24, 280, 380);
 	// Executa os comandos OpenGL
 	glutSwapBuffers();
@@ -1343,6 +1343,7 @@ void DesenhaMenuPress4(void)
 
 }
 
+
 int countlines(char *filename)
 {
 
@@ -1443,6 +1444,48 @@ void InicializaFase() {
 
 	lerArquivoFase(nomeFase);
 
+}
+
+// Inicializa parâmetros de rendering
+void Inicializa(void)
+{
+
+	InicializaFase();
+
+
+
+
+	// Define a cor de fundo da janela de visualização como preta
+	glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
+	win = 150.0f;
+	if (fase == 1) {
+		primitiva = ANIMACAO;
+	}
+	r = 0.0f;
+	g = 0.0f;
+	b = 1.0f;
+	strcpy(texto, "(0,0)");
+}
+
+// Função callback chamada quando o tamanho da janela é alterado 
+void AlteraTamanhoJanela(GLsizei w, GLsizei h)
+{
+	// Especifica as dimensões da Viewport
+	// Evita a divisao por zero
+	if (h == 0) h = 1;
+
+	// Especifica as dimensões da Viewport
+	glViewport(0, 0, w, h);
+
+	// Inicializa o sistema de coordenadas
+	glMatrixMode(GL_PROJECTION);
+	glLoadIdentity();
+
+	// Estabelece a janela de seleção (left, right, bottom, top)
+	if (w <= h)
+		gluOrtho2D(0.0f, 500.0f, 0.0f, 500.0f*h / w);
+	else
+		gluOrtho2D(0.0f, 500.0f*w / h, 0.0f, 500.0f);
 }
 
 // Função que desenha um FASE1
@@ -1561,8 +1604,10 @@ void DesenhaFase1(void)
 		glVertex2i(GLint(caminhoes[i].getX() + caminhoes[i].getWidth()), GLint(caminhoes[i].getY() + caminhoes[i].getHeight()));
 		glEnd();
 
-		if (caminhoes[i].getX() > 500) {
+		if (caminhoes[i].getX() > 500 && caminhoes[i].getVelocidade()>0) {
 			caminhoes[i].setX(-1650);
+		} else if (caminhoes[i].getX() < -1650 && caminhoes[i].getVelocidade()<0) {
+			caminhoes[i].setX(500);
 		}
 	}
 
@@ -1591,15 +1636,17 @@ void DesenhaFase1(void)
 		glEnd();
 
 
-		if (madeiras[i].getX() > 500)
+		if (madeiras[i].getX() > 500 && madeiras[i].getVelocidade()>0)
 		{
 			madeiras[i].setX(-1650);
+		} else if (madeiras[i].getX() < -1650 && madeiras[i].getVelocidade()<0) {
+			madeiras[i].setX(500);
 		}
 	}
 	int cont = 0;
 	if (p1.getY() > 255 && p1.getY() < 450)
 	{
-
+		
 		for (int i = 0; i < madeiras.size(); i++) {
 
 			madeiras[i].colideTeste(p1);
@@ -1612,6 +1659,7 @@ void DesenhaFase1(void)
 		if (cont == 0) {
 			p1.setX(250); p1.setY(10); 			p1.setLife(p1.getLife() - 1);
 		} 
+		
 
 	}
 	
@@ -1772,29 +1820,36 @@ void DesenhaFase1(void)
 
 	if (p1.getY() > 450 && p1.getY() < 500)
 	{
+		p1.setLife(5);
 		gameState = GameStates::WIN;
-		if (gameState == GameStates::WIN && fase==1) {
+		if (gameState == GameStates::WIN && primitiva == FASE1) {
 			gameState = GameStates::PLAYING;
+			primitiva = FASE2;
 			fase = 2;
 			
-		} 	else if (gameState == GameStates::WIN && fase == 1) {
+		} 	else if (gameState == GameStates::WIN && primitiva == FASE2) {
 			gameState = GameStates::PLAYING;
+			primitiva = FASE3;
 			fase = 3;
 
-		}	else if (gameState == GameStates::WIN && fase == 1) {
+		}	else if (gameState == GameStates::WIN && primitiva == FASE3) {
 			gameState = GameStates::PLAYING;
+			primitiva = FASE4;
 			fase = 4;
 
-		}	else if (gameState == GameStates::WIN && fase == 1) {
+		}	else if (gameState == GameStates::WIN && primitiva == FASE4) {
 			gameState = GameStates::PLAYING;
+			primitiva = FASE5;
 			fase = 5;
 
 		}
+		else if (gameState == GameStates::WIN && primitiva == FASE5) {
+			gameState = GameStates::WINGAME;
+			primitiva = VITORIA;
+			fase = 1;
+		}
 
-		Inicializa();
-
-
-		glClearColor(1.0f, 1.0f, 1.0f, 0.0f);
+			glClearColor(1.0f, 1.0f, 1.0f, 0.0f);
 		glClear(GL_COLOR_BUFFER_BIT);
 
 		glutKeyboardFunc(GerenciaTeclado);
@@ -1983,6 +2038,14 @@ void Desenha(void)
 		break;
 	case FASE1:  DesenhaFase1();
 		break;
+	case FASE2:  DesenhaFase1();
+		break;
+	case FASE3:  DesenhaFase1();
+		break;
+	case FASE4:  DesenhaFase1();
+		break;
+	case FASE5:  DesenhaFase1();
+		break;
 	case VITORIA:	DesenhaVitoria();
 		break;
 	case TRIANGULO: DesenhaTriangulo();
@@ -2012,50 +2075,6 @@ void Desenha(void)
 
 }
 
-
-
-
-
-
-// Inicializa parâmetros de rendering
-void Inicializa(void)
-{
-
-	InicializaFase();
-
-
-
-
-	// Define a cor de fundo da janela de visualização como preta
-	glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
-	win = 150.0f;
-	primitiva = ANIMACAO;
-	r = 0.0f;
-	g = 0.0f;
-	b = 1.0f;
-	strcpy(texto, "(0,0)");
-}
-
-// Função callback chamada quando o tamanho da janela é alterado 
-void AlteraTamanhoJanela(GLsizei w, GLsizei h)
-{
-	// Especifica as dimensões da Viewport
-	// Evita a divisao por zero
-	if (h == 0) h = 1;
-
-	// Especifica as dimensões da Viewport
-	glViewport(0, 0, w, h);
-
-	// Inicializa o sistema de coordenadas
-	glMatrixMode(GL_PROJECTION);
-	glLoadIdentity();
-
-	// Estabelece a janela de seleção (left, right, bottom, top)
-	if (w <= h)
-		gluOrtho2D(0.0f, 500.0f, 0.0f, 500.0f*h / w);
-	else
-		gluOrtho2D(0.0f, 500.0f*w / h, 0.0f, 500.0f);
-}
 
 // Função callback chamada sempre que o mouse é movimentado
 // sobre a janela GLUT com um botão pressionado
