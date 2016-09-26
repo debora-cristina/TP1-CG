@@ -4,9 +4,10 @@
 #include <GL/glut.h>
 #include "Personagem.h"
 #include "Escopo.h"
+#include "Item.h"
 
 class Madeira : public Escopo {
-
+	Item item;
 
 public:
 
@@ -16,6 +17,13 @@ public:
 		setColide(0);
 	}
 
+	void setItem(Item item) {
+		item = this->item;
+	}
+
+	Item getItem() {
+		return item;
+	}
 
 
 	void colideTeste(Personagem p1)

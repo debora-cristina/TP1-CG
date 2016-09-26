@@ -150,8 +150,10 @@
   <ItemGroup>
     <ClInclude Include="Caminhao.h" />
     <ClInclude Include="Escopo.h" />
+    <ClInclude Include="Item.h" />
     <ClInclude Include="Personagem.h" />
     <ClInclude Include="Madeira.h" />
+    <ClInclude Include="Timer.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="..\teste.txt" />

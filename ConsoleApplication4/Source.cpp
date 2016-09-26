@@ -8,7 +8,9 @@
 #include "Caminhao.h"
 #include "Madeira.h"
 #include <vector>
-
+#include "Item.h"
+#include <random>
+#include <time.h>
 using namespace std;
 
 GLint FPS = 0;
@@ -42,7 +44,8 @@ GLfloat x9 = 0.0f;
 GLfloat y9 = 380.0f;
 GLfloat x10 = 0.0f;
 GLfloat y10 = 405.0f;
-
+GLint MAX;
+GLint MIN;
 
 
 GLsizei rsize = 30;
@@ -57,15 +60,11 @@ GLfloat ystep = 1.0f;
 GLfloat windowWidth;
 GLfloat windowHeight;
 
-/*#include <string>
-include <iostream>
-#include <stdlib.h>
-#include <stdio.h>*/
 
 // Constantes
 #define FASE1 1
 #define TRIANGULO 2
-#define LOSANGO   3
+#define Opcoes   3
 #define MENU 4
 #define ANIMACAO 5
 #define SAIR 6
@@ -81,14 +80,14 @@ include <iostream>
 #define FASE5 16
 #define VITORIA 17
 
+
 char* estado;
-enum GameStates { OPTIONS,PLAYING, WIN, GAMEOVER, WINGAME };
+enum GameStates { OPTIONS, PLAYING, WIN, GAMEOVER, WINGAME };
 GameStates gameState = GameStates::OPTIONS;
 int fase = 1;
 char* nomeFase;
 
-
-
+bool fullScreen = false;
 
 
 // Variáveis
@@ -101,6 +100,8 @@ void Desenha(void);
 void DesenhaTexto(char *string, void *font, GLfloat xAux, GLfloat yAux);
 void MoveMouse(int x, int y);
 void MoveMouseBotaoPressionado(int x, int y);
+void Timer(int value);
+
 /*void InicializaFase1(void);
 void InicializaFase2(void);
 void InicializaFase3(void);
@@ -110,6 +111,9 @@ void InicializaFase5(void);
 
 vector<Caminhao> caminhoes;
 vector<Madeira> madeiras;
+vector<Item> itens;
+
+
 
 
 void GerenciaTeclado(unsigned char key, int x, int y)
@@ -127,6 +131,21 @@ void GerenciaTeclado(unsigned char key, int x, int y)
 		break;
 	case 27:
 		primitiva = SAIR;
+		break;
+	case 'f': case'F':
+		cout << "teste";
+		if (fullScreen == false) {
+			glutFullScreen();
+			fullScreen = true;
+		}
+		else {
+			fullScreen = false;
+			glutReshapeWindow(500, 500);
+		}
+		break;
+
+	case 111:
+		primitiva = Opcoes;
 		break;
 
 	}
@@ -160,12 +179,9 @@ void GerenciaTeclado(unsigned char key, int x, int y)
 		}
 	}
 
-
-	
-
-
 	glutPostRedisplay();
 }
+
 
 
 
@@ -178,7 +194,6 @@ void DesenhaGalinha() {
 	glClearColor(1.0f, 1.0f, 1.0f, 0.0f);
 	glClear(GL_COLOR_BUFFER_BIT);
 
-	glutKeyboardFunc(GerenciaTeclado);
 	glutKeyboardUpFunc(GerenciaTeclado);
 
 	glLineWidth(5.0f);
@@ -302,7 +317,6 @@ void DesenhaVitoria() {
 	glClear(GL_COLOR_BUFFER_BIT);
 
 	glutKeyboardFunc(GerenciaTeclado);
-	glutKeyboardUpFunc(GerenciaTeclado);
 
 	glLineWidth(5.0f);
 	glBegin(GL_LINES);
@@ -400,7 +414,7 @@ void DesenhaVitoria() {
 	glEnd();
 
 
-	sprintf(texto, "TÔ VIVA!!");
+	sprintf(texto, "TO VIVA!!");
 	DesenhaTexto(texto, GLUT_BITMAP_TIMES_ROMAN_24, 280, 380);
 	// Executa os comandos OpenGL
 	glutSwapBuffers();
@@ -428,38 +442,193 @@ void Timer(int value)
 		madeiras[i].setX(madeiras[i].getX() + madeiras[i].getVelocidade());
 	}
 
-	if (p1.getY()>250 && p1.getY()<300)
+
+
+	if (primitiva == FASE1)
 	{
-
-		if (p1.getColide() == 0)
+		if (p1.getY() > 250 && p1.getY() < 300)
 		{
-			p1.setX(p1.getX() + 0.5);
+
+			if (p1.getColide() == 0)
+			{
+				p1.setX(p1.getX() + 0.5);
+			}
+
+		}
+		if (p1.getY() > 300 && p1.getY() < 350) {
+			if (p1.getColide() == 0)
+			{
+				p1.setX(p1.getX() + 0.8);
+			}
+
 		}
 
-	}
-	if (p1.getY() > 300 && p1.getY() < 350) {
-		if (p1.getColide() == 0)
+		if (p1.getY() > 350 && p1.getY() < 400)
 		{
-			p1.setX(p1.getX() + 0.8);
+			if (p1.getColide() == 0)
+			{
+				p1.setX(p1.getX() + 0.6);
+			}
 		}
 
+		if (p1.getY() > 400 && p1.getY() < 450)
+		{
+			if (p1.getColide() == 0)
+			{
+				p1.setX(p1.getX() + 0.5);
+			}
+		}
 	}
 
-	if (p1.getY() > 350 && p1.getY() < 400)
+
+	if (primitiva == FASE2)
 	{
-		if (p1.getColide() == 0)
+		if (p1.getY() > 250 && p1.getY() < 300)
 		{
-			p1.setX(p1.getX() + 0.6);
+
+			if (p1.getColide() == 0)
+			{
+				p1.setX(p1.getX() + 0.6);
+			}
+
+		}
+		if (p1.getY() > 300 && p1.getY() < 350) {
+			if (p1.getColide() == 0)
+			{
+				p1.setX(p1.getX() + 0.8);
+			}
+
+		}
+
+		if (p1.getY() > 350 && p1.getY() < 400)
+		{
+			if (p1.getColide() == 0)
+			{
+				p1.setX(p1.getX() + 0.5);
+			}
+		}
+
+		if (p1.getY() > 400 && p1.getY() < 450)
+		{
+			if (p1.getColide() == 0)
+			{
+				p1.setX(p1.getX() + 0.4);
+			}
 		}
 	}
 
-	if (p1.getY() > 400 && p1.getY() < 450)
+
+	if (primitiva == FASE3)
 	{
-		if (p1.getColide() == 0)
+		if (p1.getY() > 250 && p1.getY() < 300)
 		{
-			p1.setX(p1.getX() + 0.5);
+
+			if (p1.getColide() == 0)
+			{
+				p1.setX(p1.getX() + 0.7);
+			}
+
+		}
+		if (p1.getY() > 300 && p1.getY() < 350) {
+			if (p1.getColide() == 0)
+			{
+				p1.setX(p1.getX() + -0.8);
+			}
+
+		}
+
+		if (p1.getY() > 350 && p1.getY() < 400)
+		{
+			if (p1.getColide() == 0)
+			{
+				p1.setX(p1.getX() - 0.4);
+			}
+		}
+
+		if (p1.getY() > 400 && p1.getY() < 450)
+		{
+			if (p1.getColide() == 0)
+			{
+				p1.setX(p1.getX() + 0.6);
+			}
 		}
 	}
+
+
+	if (primitiva == FASE4)
+	{
+		if (p1.getY() > 250 && p1.getY() < 300)
+		{
+
+			if (p1.getColide() == 0)
+			{
+				p1.setX(p1.getX() + 0.8);
+			}
+
+		}
+		if (p1.getY() > 300 && p1.getY() < 350) {
+			if (p1.getColide() == 0)
+			{
+				p1.setX(p1.getX() + -1.0);
+			}
+
+		}
+
+		if (p1.getY() > 350 && p1.getY() < 400)
+		{
+			if (p1.getColide() == 0)
+			{
+				p1.setX(p1.getX() + 0.5);
+			}
+		}
+
+		if (p1.getY() > 400 && p1.getY() < 450)
+		{
+			if (p1.getColide() == 0)
+			{
+				p1.setX(p1.getX() + 0.7);
+			}
+		}
+	}
+
+
+	if (primitiva == FASE5)
+	{
+		if (p1.getY() > 250 && p1.getY() < 300)
+		{
+
+			if (p1.getColide() == 0)
+			{
+				p1.setX(p1.getX() - 0.9);
+			}
+
+		}
+		if (p1.getY() > 300 && p1.getY() < 350) {
+			if (p1.getColide() == 0)
+			{
+				p1.setX(p1.getX() + 1.3);
+			}
+
+		}
+
+		if (p1.getY() > 350 && p1.getY() < 400)
+		{
+			if (p1.getColide() == 0)
+			{
+				p1.setX(p1.getX() - 0.9);
+			}
+		}
+
+		if (p1.getY() > 400 && p1.getY() < 450)
+		{
+			if (p1.getColide() == 0)
+			{
+				p1.setX(p1.getX() + 0.6);
+			}
+		}
+	}
+
+
 
 
 	if (p1.getX() > 470) p1.setX(470);
@@ -474,7 +643,6 @@ void DesenhaAnimacao() {
 
 
 	glutKeyboardFunc(GerenciaTeclado);
-	glutKeyboardUpFunc(GerenciaTeclado);
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
 
@@ -487,7 +655,6 @@ void DesenhaAnimacao() {
 
 	for (int i = 0; i < 500; i++) {
 		glutKeyboardFunc(GerenciaTeclado);
-		glutKeyboardUpFunc(GerenciaTeclado);
 
 		//break1 = getch();
 
@@ -759,7 +926,6 @@ void DesenhaAnimacao() {
 		//Delay(30);
 		Sleep(timer2);
 		glutKeyboardFunc(GerenciaTeclado);
-		glutKeyboardUpFunc(GerenciaTeclado);
 		//glutTimerFunc(33, Timer, 1);
 
 	}
@@ -767,7 +933,7 @@ void DesenhaAnimacao() {
 
 	for (int i = 0; i < 500; i++) {
 		glutKeyboardFunc(GerenciaTeclado);
-		glutKeyboardUpFunc(GerenciaTeclado);
+
 
 		glBegin(GL_QUADS);
 		glColor3f(0.9f, 0.9f, 0.9f);
@@ -791,7 +957,6 @@ void DesenhaAnimacao() {
 	for (int i = 0; i < 500; i++) {
 
 		glutKeyboardFunc(GerenciaTeclado);
-		glutKeyboardUpFunc(GerenciaTeclado);
 
 		glLineWidth(5.0f);
 		glBegin(GL_LINES);
@@ -944,7 +1109,7 @@ void DesenhaAnimacao() {
 		glutSwapBuffers();
 		Sleep(timer2);
 		glutKeyboardFunc(GerenciaTeclado);
-		glutKeyboardUpFunc(GerenciaTeclado);
+
 	}
 
 
@@ -1371,6 +1536,11 @@ void lerArquivoFase(char* nomeArquivo)
 	int i, j;
 	int linhas = countlines(nomeArquivo);
 	float value[10000][6];
+
+	caminhoes.clear();
+	madeiras.clear();
+
+
 	FILE *archivo;
 	archivo = fopen(nomeArquivo, "r");
 	if (archivo == NULL)
@@ -1415,8 +1585,21 @@ void lerArquivoFase(char* nomeArquivo)
 
 		}
 	}
-	fclose(archivo);
 
+	srand(time(NULL)); // Seed the time
+	int finalNum = rand() % (madeiras.size()-1 - 0) + 0;
+	cout << "RANDOM" << finalNum << "tamanho madeira" << madeiras.size();
+
+	Item item;
+	item.setX(madeiras[finalNum].getX());
+	item.setY(madeiras[finalNum].getY());
+	item.setFase(1);
+	item.setTipo(1);
+
+	madeiras[finalNum].setItem(item);
+
+	
+	fclose(archivo);
 
 
 }
@@ -1493,6 +1676,22 @@ void AlteraTamanhoJanela(GLsizei w, GLsizei h)
 void DesenhaFase1(void)
 {
 	gameState = GameStates::PLAYING;
+	
+	glBegin(GL_QUADS);
+	glColor3f(1.0f, 0.5f, 0.0f);
+	glVertex2i(237, 324);
+	glVertex2i(263, 324);
+
+	glVertex2i(263, 314);
+	glVertex2i(237, 314);
+	glEnd();
+
+	glColor3f(1.0f, 0.0f, 0.0f);
+	glVertex2i(250, 250);
+	glVertex2i(300, 250);
+	glVertex2i(250, 300);
+	glVertex2i(300, 300);
+	glEnd();
 
 
 	glClear(GL_COLOR_BUFFER_BIT);
@@ -1606,7 +1805,8 @@ void DesenhaFase1(void)
 
 		if (caminhoes[i].getX() > 500 && caminhoes[i].getVelocidade()>0) {
 			caminhoes[i].setX(-1650);
-		} else if (caminhoes[i].getX() < -1650 && caminhoes[i].getVelocidade()<0) {
+		}
+		else if (caminhoes[i].getX() < -1650 && caminhoes[i].getVelocidade()<0) {
 			caminhoes[i].setX(500);
 		}
 	}
@@ -1635,18 +1835,23 @@ void DesenhaFase1(void)
 		glVertex2i(GLint(madeiras[i].getX() + madeiras[i].getWidth()), GLint(madeiras[i].getY() + madeiras[i].getHeight()));
 		glEnd();
 
+		/*if (madeiras[i].getItem() == NULL) {
+
+		}*/
+
 
 		if (madeiras[i].getX() > 500 && madeiras[i].getVelocidade()>0)
 		{
 			madeiras[i].setX(-1650);
-		} else if (madeiras[i].getX() < -1650 && madeiras[i].getVelocidade()<0) {
+		}
+		else if (madeiras[i].getX() < -1650 && madeiras[i].getVelocidade()<0) {
 			madeiras[i].setX(500);
 		}
 	}
 	int cont = 0;
 	if (p1.getY() > 255 && p1.getY() < 450)
 	{
-		
+
 		for (int i = 0; i < madeiras.size(); i++) {
 
 			madeiras[i].colideTeste(p1);
@@ -1658,11 +1863,11 @@ void DesenhaFase1(void)
 
 		if (cont == 0) {
 			p1.setX(250); p1.setY(10); 			p1.setLife(p1.getLife() - 1);
-		} 
-		
+		}
+
 
 	}
-	
+
 	if (p1.getLife() == 0)
 	{
 		primitiva = GALINHA;
@@ -1677,6 +1882,8 @@ void DesenhaFase1(void)
 		glVertex2i(470, 490);
 		glVertex2i(470, 470);
 		glEnd();
+
+
 
 	}
 	if (p1.getLife() == 2)
@@ -1805,6 +2012,7 @@ void DesenhaFase1(void)
 		glEnd();
 
 
+
 	}
 
 
@@ -1826,18 +2034,21 @@ void DesenhaFase1(void)
 			gameState = GameStates::PLAYING;
 			primitiva = FASE2;
 			fase = 2;
-			
-		} 	else if (gameState == GameStates::WIN && primitiva == FASE2) {
+
+		}
+		else if (gameState == GameStates::WIN && primitiva == FASE2) {
 			gameState = GameStates::PLAYING;
 			primitiva = FASE3;
 			fase = 3;
 
-		}	else if (gameState == GameStates::WIN && primitiva == FASE3) {
+		}
+		else if (gameState == GameStates::WIN && primitiva == FASE3) {
 			gameState = GameStates::PLAYING;
 			primitiva = FASE4;
 			fase = 4;
 
-		}	else if (gameState == GameStates::WIN && primitiva == FASE4) {
+		}
+		else if (gameState == GameStates::WIN && primitiva == FASE4) {
 			gameState = GameStates::PLAYING;
 			primitiva = FASE5;
 			fase = 5;
@@ -1849,11 +2060,10 @@ void DesenhaFase1(void)
 			fase = 1;
 		}
 
-			glClearColor(1.0f, 1.0f, 1.0f, 0.0f);
+		glClearColor(1.0f, 1.0f, 1.0f, 0.0f);
 		glClear(GL_COLOR_BUFFER_BIT);
 
 		glutKeyboardFunc(GerenciaTeclado);
-		glutKeyboardUpFunc(GerenciaTeclado);
 
 		glLineWidth(5.0f);
 		glBegin(GL_LINES);
@@ -1968,7 +2178,21 @@ void DesenhaFase1(void)
 	}
 
 
+
+
+	glBegin(GL_QUADS);
+
+	glColor3f(0.0f, 0.0f, 0.0f);
+	glVertex2i(500, 0);
+	glVertex2i(2500, 0);
+	glVertex2i(2500, 2500);
+	glVertex2i(500, 2500);
+	glEnd();
+
 	glutPostRedisplay();
+
+
+
 
 }
 
@@ -1983,15 +2207,127 @@ void DesenhaTriangulo(void)
 	glEnd();
 }
 
-// Função que desenha um losango
-void DesenhaLosango(void)
+// Função que desenha um Opcoes
+void DesenhaOpcoes(void)
 {
-	glBegin(GL_POLYGON);
-	glVertex2f(200.0f, 250.0f);
-	glVertex2f(250.0f, 300.0f);
-	glVertex2f(300.0f, 250.0f);
-	glVertex2f(250.0f, 200.0f);
+	glBegin(GL_QUADS);
+	glColor3f(1.0f, 1.0f, 1.0f);
+	glVertex2f(100.0f, 80.0f);
+	glVertex2f(100.0f, 20.0f);
+	glVertex2f(400.0f, 20.0f);
+	glVertex2f(400.0f, 80.0f);
 	glEnd();
+
+
+	glBegin(GL_QUADS);
+	glColor3f(1.0f, 1.0f, 1.0f);
+	glVertex2f(100.0f, 160.0f);
+	glVertex2f(100.0f, 100.0f);
+	glVertex2f(400.0f, 100.0f);
+	glVertex2f(400.0f, 160.0f);
+	glEnd();
+
+
+
+	glBegin(GL_QUADS);
+	glColor3f(1.0f, 1.0f, 1.0f);
+	glVertex2f(50.0f, 250.0f);
+	glVertex2f(50.0f, 310.0f);
+	glVertex2f(110.0f, 310.0f);
+	glVertex2f(110.0f, 250.0f);
+	glEnd();
+
+	glBegin(GL_QUADS);
+	glColor3f(1.0f, 1.0f, 1.0f);
+	glVertex2f(120.0f, 250.0f);
+	glVertex2f(120.0f, 310.0f);
+	glVertex2f(180.0f, 310.0f);
+	glVertex2f(180.0f, 250.0f);
+	glEnd();
+
+	glBegin(GL_QUADS);
+	glColor3f(1.0f, 1.0f, 1.0f);
+	glVertex2f(190.0f, 250.0f);
+	glVertex2f(190.0f, 310.0f);
+	glVertex2f(250.0f, 310.0f);
+	glVertex2f(250.0f, 250.0f);
+	glEnd();
+
+	glBegin(GL_QUADS);
+	glColor3f(1.0f, 1.0f, 1.0f);
+	glVertex2f(120.0f, 320.0f);
+	glVertex2f(120.0f, 380.0f);
+	glVertex2f(180.0f, 380.0f);
+	glVertex2f(180.0f, 320.0f);
+	glEnd();
+
+
+	glBegin(GL_LINES);
+	glColor3f(0.0f, 0.0f, 0.0f);
+	glVertex2f(150.0f, 280.0f);
+	glVertex2f(160.0f, 270.0f);
+	glVertex2f(160.0f, 270.0f);
+	glVertex2f(170.0f, 280.0f);
+	glVertex2f(160.0f, 270.0f);
+	glVertex2f(160.0f, 290.0f);
+
+	glEnd();
+
+
+
+	glBegin(GL_LINES);
+	glColor3f(0.0f, 0.0f, 0.0f);
+	glVertex2f(155.0f, 345.0f);
+	glVertex2f(165.0f, 355.0f);
+	glVertex2f(165.0f, 355.0f);
+	glVertex2f(175.0f, 345.0f);
+	glVertex2f(165.0f, 335.0f);
+	glVertex2f(165.0f, 355.0f);
+
+	glEnd();
+
+
+
+
+
+	glColor3f(0.0f, 0.0f, 0.0f);
+	sprintf(texto, "a/<-");
+	DesenhaTexto(texto, GLUT_BITMAP_TIMES_ROMAN_24, 60, 270);
+	sprintf(texto, "s/");
+	DesenhaTexto(texto, GLUT_BITMAP_TIMES_ROMAN_24, 130, 270);
+	sprintf(texto, "d/->");
+	DesenhaTexto(texto, GLUT_BITMAP_TIMES_ROMAN_24, 200, 270);
+	sprintf(texto, "w/");
+	DesenhaTexto(texto, GLUT_BITMAP_TIMES_ROMAN_24, 130, 340);
+
+
+	sprintf(texto, "VOLTAR");
+	DesenhaTexto(texto, GLUT_BITMAP_TIMES_ROMAN_24, 180, 120);
+	sprintf(texto, "SAIR");
+	DesenhaTexto(texto, GLUT_BITMAP_TIMES_ROMAN_24, 180, 40);
+
+
+	glColor3f(1.0f, 1.0f, 1.0f);
+
+	sprintf(texto, "Porque a galinha atravessou a rua?");
+	DesenhaTexto(texto, GLUT_BITMAP_TIMES_ROMAN_24, 50, 470);
+	sprintf(texto, "Porque a galinha atravessou o rio?");
+	DesenhaTexto(texto, GLUT_BITMAP_TIMES_ROMAN_24, 50, 435);
+	sprintf(texto, "Controle a galinha e descubra");
+	DesenhaTexto(texto, GLUT_BITMAP_TIMES_ROMAN_24, 50, 400);
+
+
+	sprintf(texto, "W, A , S e D movem o personagem para");
+	DesenhaTexto(texto, GLUT_BITMAP_TIMES_ROMAN_24, 20, 225);
+	sprintf(texto, "Cima, Esquerda, Baixo e Direita");
+	DesenhaTexto(texto, GLUT_BITMAP_TIMES_ROMAN_24, 20, 195);
+
+
+
+
+
+
+
 }
 
 void sair() { exit(0); }
@@ -2050,7 +2386,7 @@ void Desenha(void)
 		break;
 	case TRIANGULO: DesenhaTriangulo();
 		break;
-	case LOSANGO:   DesenhaLosango();
+	case Opcoes:   DesenhaOpcoes();
 		break;
 	case SAIR: sair();
 		break;
@@ -2148,7 +2484,7 @@ void MoveMouseBotaoPressionado(int x, int y)
 	//sprintf(texto, "Botao pressionado (%d,%d)", x, y);
 
 
-	sprintf(texto, "Botao pressionado (%d,%d)", x, y);
+	//sprintf(texto, "Botao pressionado (%d,%d)", x, y);
 
 
 	glutPostRedisplay();
@@ -2158,9 +2494,9 @@ void MoveMouseBotaoPressionado(int x, int y)
 // sobre a janela GLUT 
 void MoveMouse(int x, int y)
 {
-	glColor3f(1.0f, 1.0f, 0.0f);
-	sprintf(texto, "(%d,%d)", x, y);
-	DesenhaTexto(texto, GLUT_BITMAP_TIMES_ROMAN_10, 10, 460);
+	//glColor3f(1.0f, 1.0f, 0.0f);
+	//sprintf(texto, "(%d,%d)", x, y);
+	//DesenhaTexto(texto, GLUT_BITMAP_TIMES_ROMAN_10, 10, 460);
 	glutPostRedisplay();
 }
 
@@ -2231,7 +2567,7 @@ void MenuPrimitiva(int op)
 		primitiva = TRIANGULO;
 		break;
 	case 2:
-		primitiva = LOSANGO;
+		primitiva = Opcoes;
 		break;
 	case 3:
 		primitiva = MENU;
@@ -2262,7 +2598,7 @@ void CriaMenu()
 	submenu2 = glutCreateMenu(MenuPrimitiva);
 	glutAddMenuEntry("FASE1", 0);
 	glutAddMenuEntry("Triângulo", 1);
-	glutAddMenuEntry("Losango", 2);
+	glutAddMenuEntry("Opcoes", 2);
 	glutAddMenuEntry("Menu", 3);
 
 	menu = glutCreateMenu(MenuPrincipal);
@@ -2311,7 +2647,7 @@ void GerenciaMouse(int button, int state, int x, int y)
 
 
 
-	//sprintf(texto, "Botao pressionado (%d,%d)", x, y);
+	sprintf(texto, "Botao pressionado (%d,%d)", x, y);
 
 
 	if (primitiva == MENU || primitiva == MENUPRESS1 || primitiva == MENUPRESS2 || primitiva == MENUPRESS3 || primitiva == MENUPRESS4)
@@ -2366,9 +2702,9 @@ void GerenciaMouse(int button, int state, int x, int y)
 					}
 					if (worldY > 320 && worldY < 380)
 					{
-						primitiva = LOSANGO;
+						primitiva = Opcoes;
 
-						//DesenhaLosango();
+						//DesenhaOpcoes();
 
 					}
 					if (worldY > 220 && worldY < 280)
@@ -2386,6 +2722,42 @@ void GerenciaMouse(int button, int state, int x, int y)
 	}
 
 
+	if (primitiva == Opcoes)
+	{
+		if (button == GLUT_LEFT_BUTTON)
+		{
+
+
+
+			if (state == GLUT_UP)
+			{
+				if (worldX > 100 && worldX < 400) {
+
+					if (worldY > 20 && worldY < 80)
+					{
+						primitiva = SAIR;
+						//DesenhaFase1();
+					}
+					if (worldY > 120 && worldY < 180)
+					{
+						primitiva = MENU;
+
+						//DesenhaOpcoes();
+
+					}
+				}
+			}
+		}
+
+	}
+
+
+
+
+
+
+
+
 
 	if (button == GLUT_RIGHT_BUTTON)
 		if (state == GLUT_DOWN)
@@ -2398,8 +2770,8 @@ int main(int argc, char **argv) {
 	glutInit(&argc, argv);
 	glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB);
 	glutInitWindowSize(500, 500);
-	glutInitWindowPosition(10, 10);
-	glutCreateWindow("Exemplo de Menu e Exibição de Caracteres");
+	glutInitWindowPosition(0, 0);
+	glutCreateWindow("TO MORTA");
 
 	//glutIdleFunc(idle);
 	glutDisplayFunc(Desenha);
