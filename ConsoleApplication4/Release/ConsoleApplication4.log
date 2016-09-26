@@ -1,0 +1,149 @@
+﻿  Source.cpp
+c:\users\debor\documents\consoleapplication4\consoleapplication4\Personagem.h(37): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+c:\users\debor\documents\consoleapplication4\consoleapplication4\Personagem.h(56): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+c:\users\debor\documents\consoleapplication4\consoleapplication4\Personagem.h(60): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+c:\users\debor\documents\consoleapplication4\consoleapplication4\Personagem.h(89): warning C4244: 'return': conversion from 'int' to 'float', possible loss of data
+c:\users\debor\documents\consoleapplication4\consoleapplication4\Personagem.h(92): warning C4244: 'return': conversion from 'int' to 'float', possible loss of data
+c:\users\debor\documents\consoleapplication4\consoleapplication4\Item.h(47): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+c:\users\debor\documents\consoleapplication4\consoleapplication4\Item.h(52): warning C4244: 'return': conversion from 'int' to 'float', possible loss of data
+c:\users\debor\documents\consoleapplication4\consoleapplication4\Item.h(55): warning C4244: 'return': conversion from 'int' to 'float', possible loss of data
+c:\users\debor\documents\consoleapplication4\consoleapplication4\Item.h(66): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+Source.cpp(26): warning C4305: 'initializing': truncation from 'double' to 'GLfloat'
+Source.cpp(307): warning C4244: 'argument': conversion from 'GLfloat' to 'DWORD', possible loss of data
+Source.cpp(302): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\stdio.h(1769): note: see declaration of 'sprintf'
+Source.cpp(424): warning C4244: 'argument': conversion from 'GLfloat' to 'DWORD', possible loss of data
+Source.cpp(419): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\stdio.h(1769): note: see declaration of 'sprintf'
+Source.cpp(457): warning C4018: '<': signed/unsigned mismatch
+Source.cpp(461): warning C4018: '<': signed/unsigned mismatch
+Source.cpp(468): warning C4018: '<': signed/unsigned mismatch
+Source.cpp(473): warning C4305: '=': truncation from 'double' to 'GLfloat'
+Source.cpp(474): warning C4305: '=': truncation from 'double' to 'GLfloat'
+Source.cpp(513): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+Source.cpp(520): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+Source.cpp(529): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+Source.cpp(537): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+Source.cpp(550): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+Source.cpp(557): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+Source.cpp(566): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+Source.cpp(574): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+Source.cpp(587): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+Source.cpp(594): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+Source.cpp(603): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+Source.cpp(611): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+Source.cpp(624): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+Source.cpp(631): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+Source.cpp(640): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+Source.cpp(648): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+Source.cpp(661): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+Source.cpp(668): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+Source.cpp(677): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+Source.cpp(685): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+Source.cpp(697): warning C4244: 'argument': conversion from 'double' to 'unsigned int', possible loss of data
+Source.cpp(986): warning C4244: 'argument': conversion from 'GLfloat' to 'DWORD', possible loss of data
+Source.cpp(1009): warning C4244: 'argument': conversion from 'GLfloat' to 'DWORD', possible loss of data
+Source.cpp(1169): warning C4244: 'argument': conversion from 'GLfloat' to 'DWORD', possible loss of data
+Source.cpp(1165): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\stdio.h(1769): note: see declaration of 'sprintf'
+Source.cpp(1228): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\stdio.h(1769): note: see declaration of 'sprintf'
+Source.cpp(1230): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\stdio.h(1769): note: see declaration of 'sprintf'
+Source.cpp(1232): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\stdio.h(1769): note: see declaration of 'sprintf'
+Source.cpp(1234): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\stdio.h(1769): note: see declaration of 'sprintf'
+Source.cpp(1278): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\stdio.h(1769): note: see declaration of 'sprintf'
+Source.cpp(1280): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\stdio.h(1769): note: see declaration of 'sprintf'
+Source.cpp(1282): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\stdio.h(1769): note: see declaration of 'sprintf'
+Source.cpp(1284): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\stdio.h(1769): note: see declaration of 'sprintf'
+Source.cpp(1367): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\stdio.h(1769): note: see declaration of 'sprintf'
+Source.cpp(1369): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\stdio.h(1769): note: see declaration of 'sprintf'
+Source.cpp(1371): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\stdio.h(1769): note: see declaration of 'sprintf'
+Source.cpp(1373): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\stdio.h(1769): note: see declaration of 'sprintf'
+Source.cpp(1455): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\stdio.h(1769): note: see declaration of 'sprintf'
+Source.cpp(1457): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\stdio.h(1769): note: see declaration of 'sprintf'
+Source.cpp(1459): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\stdio.h(1769): note: see declaration of 'sprintf'
+Source.cpp(1461): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\stdio.h(1769): note: see declaration of 'sprintf'
+Source.cpp(1532): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\stdio.h(1769): note: see declaration of 'sprintf'
+Source.cpp(1534): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\stdio.h(1769): note: see declaration of 'sprintf'
+Source.cpp(1536): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\stdio.h(1769): note: see declaration of 'sprintf'
+Source.cpp(1538): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\stdio.h(1769): note: see declaration of 'sprintf'
+Source.cpp(1574): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\stdio.h(205): note: see declaration of 'fopen'
+Source.cpp(1575): warning C4101: 'integers': unreferenced local variable
+Source.cpp(1604): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\stdio.h(205): note: see declaration of 'fopen'
+Source.cpp(1610): warning C4996: 'fscanf': This function or variable may be unsafe. Consider using fscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\stdio.h(1193): note: see declaration of 'fscanf'
+Source.cpp(1680): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+Source.cpp(1664): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\stdio.h(205): note: see declaration of 'fopen'
+Source.cpp(1670): warning C4996: 'fscanf': This function or variable may be unsafe. Consider using fscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\stdio.h(1193): note: see declaration of 'fscanf'
+Source.cpp(1741): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\string.h(119): note: see declaration of 'strcpy'
+Source.cpp(1888): warning C4018: '<': signed/unsigned mismatch
+Source.cpp(1905): warning C4018: '<': signed/unsigned mismatch
+Source.cpp(1913): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+Source.cpp(1918): warning C4018: '<': signed/unsigned mismatch
+Source.cpp(1923): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
+Source.cpp(1924): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
+Source.cpp(1925): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
+Source.cpp(1926): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
+Source.cpp(1930): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
+Source.cpp(1931): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
+Source.cpp(1932): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
+Source.cpp(1933): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
+Source.cpp(1940): warning C4018: '<': signed/unsigned mismatch
+Source.cpp(1963): warning C4018: '<': signed/unsigned mismatch
+Source.cpp(1973): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+Source.cpp(2279): warning C4244: 'argument': conversion from 'GLfloat' to 'DWORD', possible loss of data
+Source.cpp(2273): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\stdio.h(1769): note: see declaration of 'sprintf'
+Source.cpp(2402): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\stdio.h(1769): note: see declaration of 'sprintf'
+Source.cpp(2404): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\stdio.h(1769): note: see declaration of 'sprintf'
+Source.cpp(2406): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\stdio.h(1769): note: see declaration of 'sprintf'
+Source.cpp(2408): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\stdio.h(1769): note: see declaration of 'sprintf'
+Source.cpp(2412): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\stdio.h(1769): note: see declaration of 'sprintf'
+Source.cpp(2414): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\stdio.h(1769): note: see declaration of 'sprintf'
+Source.cpp(2420): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\stdio.h(1769): note: see declaration of 'sprintf'
+Source.cpp(2422): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\stdio.h(1769): note: see declaration of 'sprintf'
+Source.cpp(2424): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\stdio.h(1769): note: see declaration of 'sprintf'
+Source.cpp(2428): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\stdio.h(1769): note: see declaration of 'sprintf'
+Source.cpp(2430): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\stdio.h(1769): note: see declaration of 'sprintf'
+Source.cpp(2758): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\stdio.h(1769): note: see declaration of 'sprintf'
+  Generating code
+  All 311 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  Finished generating code
+  ConsoleApplication4.vcxproj -> C:\Users\debor\Documents\ConsoleApplication4\Release\ConsoleApplication4.exe
+  ConsoleApplication4.vcxproj -> C:\Users\debor\Documents\ConsoleApplication4\Release\ConsoleApplication4.pdb (Full PDB)

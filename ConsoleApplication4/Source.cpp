@@ -24,6 +24,8 @@ Personagem p1;
 GLint ClickON = 0;
 GLint break1 = 0;
 GLfloat timer2 = 3.3;
+//GLfloat xiStep = 1;
+//GLfloat yiStep = 1;
 
 // Tamanho e posição inicial do FASE1
 GLfloat x2 = 250.0f;
@@ -46,6 +48,8 @@ GLfloat x10 = 0.0f;
 GLfloat y10 = 405.0f;
 GLint MAX;
 GLint MIN;
+GLfloat xiStep = 0.7f;
+GLfloat yiStep = 0.7f;
 
 
 GLsizei rsize = 30;
@@ -433,6 +437,23 @@ void InicializaPersonagem()
 
 void Timer(int value)
 {
+/*	GLint viewport[4]; //var to hold the viewport info
+	GLdouble modelview[16]; //var to hold the modelview info
+	GLdouble projection[16]; //var to hold the projection matrix info
+	GLfloat winX, winY, winZ; //variables to hold screen x,y,z coordinates
+	GLdouble worldX, worldY, worldZ; //variables to hold world x,y,z coordinates
+
+	glGetDoublev(GL_MODELVIEW_MATRIX, modelview); //get the modelview info
+	glGetDoublev(GL_PROJECTION_MATRIX, projection); //get the projection matrix info
+	glGetIntegerv(GL_VIEWPORT, viewport); //get the viewport info
+
+	winX = (float)p1.getX();
+	winY = (float)viewport[3] - (float)p1.getY();
+	winZ = 0;
+
+	//get the world coordinates from the screen coordinates
+	gluUnProject(winX, winY, winZ, modelview, projection, viewport, &worldX, &worldY, &worldZ);
+	*/
 
 	for (int i = 0; i < caminhoes.size(); i++) {
 		caminhoes[i].setX(caminhoes[i].getX() + caminhoes[i].getVelocidade());
@@ -444,8 +465,173 @@ void Timer(int value)
 
 
 
+	for (int i = 0; i < itens.size(); i++)
+	{
+
+		// Muda a direção quando chega na borda esquerda ou direita
+		if (itens[i].getFase() == 1 && itens[i].getTipo()==1)
+		{
+			
+			if (itens[i].getX() > 470)
+			{
+				xiStep = -0.7;
+			}
+
+			if (itens[i].getX() < 0)
+			{
+				xiStep = 0.7;
+			}
+			// Muda a direção quando chega na borda superior ou inferior
+			if (itens[i].getY() > 470)
+			{
+				yiStep = -0.7;
+			}
+
+			if (itens[i].getY() < 0)
+			{
+
+				yiStep = 0.7;
+			}
+
+			itens[i].setX(itens[i].getX() + xiStep);
+			itens[i].setY(itens[i].getY() + yiStep);
+		}
+	
+	
+		else if (itens[i].getFase() == 2 && itens[i].getTipo() == 1)
+		{
+
+			if (itens[i].getX() > 470)
+			{
+				xiStep = -0.4;
+			}
+
+			if (itens[i].getX() < 0)
+			{
+				xiStep = 0.4;
+			}
+			// Muda a direção quando chega na borda superior ou inferior
+			if (itens[i].getY() > 470)
+			{
+				yiStep = -1.2;
+			}
+
+			if (itens[i].getY() < 0)
+			{
+
+				yiStep = 1.2;
+			}
+
+			itens[i].setX(itens[i].getX() + xiStep);
+			itens[i].setY(itens[i].getY() + yiStep);
+		}
+
+		else if (itens[i].getFase() == 3 && itens[i].getTipo() == 1)
+		{
+
+			if (itens[i].getX() > 470)
+			{
+				xiStep = -0.7;
+			}
+
+			if (itens[i].getX() < 0)
+			{
+				xiStep = 0.9;
+			}
+			// Muda a direção quando chega na borda superior ou inferior
+			if (itens[i].getY() > 470)
+			{
+				yiStep = -1.2;
+			}
+
+			if (itens[i].getY() < 0)
+			{
+
+				yiStep = 1.7;
+			}
+
+			itens[i].setX(itens[i].getX() + xiStep);
+			itens[i].setY(itens[i].getY() + yiStep);
+		}
+
+		else if (itens[i].getFase() == 4 && itens[i].getTipo() == 1)
+		{
+
+			if (itens[i].getX() > 470)
+			{
+				xiStep = -0.5;
+			}
+
+			if (itens[i].getX() < 0)
+			{
+				xiStep = 0.5;
+			}
+			// Muda a direção quando chega na borda superior ou inferior
+			if (itens[i].getY() > 470)
+			{
+				yiStep = -0.9;
+			}
+
+			if (itens[i].getY() < 0)
+			{
+
+				yiStep = 0.9;
+			}
+
+			itens[i].setX(itens[i].getX() + xiStep);
+			itens[i].setY(itens[i].getY() + yiStep);
+		}
+
+		else if (itens[i].getFase() == 5 && itens[i].getTipo() == 1)
+		{
+
+			if (itens[i].getX() > 470)
+			{
+				xiStep = -1.7;
+			}
+
+			if (itens[i].getX() < 0)
+			{
+				xiStep = 1.7;
+			}
+			// Muda a direção quando chega na borda superior ou inferior
+			if (itens[i].getY() > 470)
+			{
+				yiStep = -1.3;
+			}
+
+			if (itens[i].getY() < 0)
+			{
+
+				yiStep = 1.3;
+			}
+
+			itens[i].setX(itens[i].getX() + xiStep);
+			itens[i].setY(itens[i].getY() + yiStep);
+		}
+
+
+
+
+}
+
+
+
+
+	// Verifica as bordas.  Se a window for menor e o 
+		// quadrado sair do volume de visualização 			
+
+
+
+
+
 	if (primitiva == FASE1)
 	{
+
+
+
+
+		
 		if (p1.getY() > 250 && p1.getY() < 300)
 		{
 
@@ -1586,23 +1772,57 @@ void lerArquivoFase(char* nomeArquivo)
 		}
 	}
 
-	srand(time(NULL)); // Seed the time
-	int finalNum = rand() % (madeiras.size()-1 - 0) + 0;
-	cout << "RANDOM" << finalNum << "tamanho madeira" << madeiras.size();
 
-	Item item;
-	item.setX(madeiras[finalNum].getX());
-	item.setY(madeiras[finalNum].getY());
-	item.setFase(1);
-	item.setTipo(1);
-
-	madeiras[finalNum].setItem(item);
-
-	
 	fclose(archivo);
 
 
 }
+
+void lerArquivoItem(char* nomeArquivo)
+{
+	int i, j;
+	int linhas = countlines(nomeArquivo);
+	float value[10000][4];
+
+	itens.clear();
+	FILE *archivo;
+	archivo = fopen(nomeArquivo, "r");
+	if (archivo == NULL)
+		exit(1);
+	i = 0;
+	while (feof(archivo) == 0)
+	{
+		fscanf(archivo, "%f %f %f %f", &value[i][0], &value[i][1], &value[i][2],
+			&value[i][3]);
+		i++;
+	}
+	printf("%d", linhas);
+
+	printf("Your matrix:\n");
+	bool verifica = true;
+	for (int i = 0; i < linhas + 1; i++) {
+		verifica = true;
+		for (j = 0; j < 4; j++) {
+			if (verifica) {
+				Item item;
+				item.setTipo(value[i][0]);
+				item.setFase(value[i][1]);				
+				item.setX(value[i][2]);
+				item.setY(value[i][3]);
+				itens.push_back(item);
+				verifica = false;
+			}
+		}
+	}
+
+
+
+	fclose(archivo);
+
+
+}
+
+
 
 void InicializaFase() {
 
@@ -1626,6 +1846,7 @@ void InicializaFase() {
 	}
 
 	lerArquivoFase(nomeFase);
+	lerArquivoItem("itens.txt");
 
 }
 
@@ -1825,6 +2046,8 @@ void DesenhaFase1(void)
 
 
 
+
+
 	for (int i = 0; i < madeiras.size(); i++) {
 
 		glBegin(GL_QUADS);
@@ -1834,10 +2057,6 @@ void DesenhaFase1(void)
 		glVertex2i(GLint(madeiras[i].getX() + madeiras[i].getWidth()), GLint(madeiras[i].getY()));
 		glVertex2i(GLint(madeiras[i].getX() + madeiras[i].getWidth()), GLint(madeiras[i].getY() + madeiras[i].getHeight()));
 		glEnd();
-
-		/*if (madeiras[i].getItem() == NULL) {
-
-		}*/
 
 
 		if (madeiras[i].getX() > 500 && madeiras[i].getVelocidade()>0)
@@ -1867,6 +2086,61 @@ void DesenhaFase1(void)
 
 
 	}
+
+	for (int i = 0; i < itens.size(); i++) {
+
+		glColor3f(0.8f, 0.1f, 0.1f);
+
+
+		if (itens[i].getFase() == 1 && itens[i].getTipo() == 1)
+		{
+			glBegin(GL_QUADS);
+			glVertex2i(itens[i].getX(), itens[i].getY() + 20);
+			glVertex2i(itens[i].getX(), itens[i].getY() + 10);
+			glVertex2i(itens[i].getX() + 30, itens[i].getY() + 10);
+			glVertex2i(itens[i].getX() + 30, itens[i].getY() + 20);
+			glEnd();
+
+			glBegin(GL_QUADS);
+			glVertex2i(itens[i].getX() + 10, itens[i].getY() + 30);
+			glVertex2i(itens[i].getX() + 10, itens[i].getY());
+			glVertex2i(itens[i].getX() + 20, itens[i].getY());
+			glVertex2i(itens[i].getX() + 20, itens[i].getY() + 30);
+			glEnd();
+		}
+
+	}
+
+
+
+
+	for (int i = 0; i < itens.size(); i++) {
+
+		itens[i].colideTeste(p1);
+		if (itens[i].getColide() == 1)
+		{
+
+			itens[i].setTipo(6);
+			//itens.erase(itens.begin() + i);
+			itens[i].setColide(0);
+		
+
+		if (p1.getLife()<5) {
+			p1.setLife(p1.getLife() + 1);
+			itens[i].setColide(0);
+			break;
+
+				}
+		
+		}
+	}
+
+
+
+
+
+
+
 
 	if (p1.getLife() == 0)
 	{

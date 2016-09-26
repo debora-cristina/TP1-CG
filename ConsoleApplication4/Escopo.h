@@ -36,6 +36,7 @@ public:
 		caixaY = heightC;
 
 	}
+	
 	void setCaixaX(float caixaPosX) {
 		caixaX = caixaPosX;
 	}
