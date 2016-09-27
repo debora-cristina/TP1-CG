@@ -11,6 +11,8 @@
 #include "Item.h"
 #include <random>
 #include <time.h>
+#include <Mmsystem.h>
+#include <mciapi.h>
 using namespace std;
 
 GLint FPS = 0;
@@ -43,6 +45,8 @@ GLint MAX;
 GLint MIN;
 GLfloat xiStep = 0.7f;
 GLfloat yiStep = 0.7f;
+GLfloat xjStep = 0.7f;
+GLfloat yjStep = 0.7f;
 
 
 GLsizei rsize = 30;
@@ -154,6 +158,7 @@ void GerenciaTeclado(unsigned char key, int x, int y)
 		switch (c) {
 
 		case 119:
+			PlaySound(TEXT("sons\\passo.wav"), NULL, SND_ASYNC);
 			p1.setY(p1.getY() + 50);
 			if (p1.getY() > 470)
 			{
@@ -294,8 +299,9 @@ void DesenhaGalinha() {
 	glEnd();
 
 
-
+	
 	sprintf(texto, "TO MORTA");
+	PlaySound(TEXT("sons\\To morta.wav"), NULL, SND_ASYNC);
 	DesenhaTexto(texto, GLUT_BITMAP_TIMES_ROMAN_24, 280, 380);
 	// Executa os comandos OpenGL
 	glutSwapBuffers();
@@ -413,6 +419,7 @@ void DesenhaVitoria() {
 
 
 	sprintf(texto, "TO VIVA!!");
+	PlaySound(TEXT("sons\\To viva.wav"), NULL, SND_ASYNC);
 	lerArquivoItem(nomeFase);
 	DesenhaTexto(texto, GLUT_BITMAP_TIMES_ROMAN_24, 280, 380);
 	// Executa os comandos OpenGL
@@ -477,7 +484,7 @@ void Timer(int value)
 				yiStep = -0.7;
 			}
 
-			if (itens[i].getY() < 0)
+			if (itens[i].getY() < 50)
 			{
 
 				yiStep = 0.7;
@@ -506,7 +513,7 @@ void Timer(int value)
 				yiStep = -1.2;
 			}
 
-			if (itens[i].getY() < 0)
+			if (itens[i].getY() < 50)
 			{
 
 				yiStep = 1.2;
@@ -534,7 +541,7 @@ void Timer(int value)
 				yiStep = -1.2;
 			}
 
-			if (itens[i].getY() < 0)
+			if (itens[i].getY() < 50)
 			{
 
 				yiStep = 1.7;
@@ -562,7 +569,7 @@ void Timer(int value)
 				yiStep = -0.9;
 			}
 
-			if (itens[i].getY() < 0)
+			if (itens[i].getY() < 50)
 			{
 
 				yiStep = 0.9;
@@ -590,7 +597,7 @@ void Timer(int value)
 				yiStep = -1.3;
 			}
 
-			if (itens[i].getY() < 0)
+			if (itens[i].getY() < 50)
 			{
 
 				yiStep = 1.3;
@@ -620,7 +627,7 @@ void Timer(int value)
 				yiStep = -0.7;
 			}
 
-			if (itens[i].getY() < 0)
+			if (itens[i].getY() < 50)
 			{
 
 				yiStep = 0.7;
@@ -649,7 +656,7 @@ void Timer(int value)
 				yiStep = -1.2;
 			}
 
-			if (itens[i].getY() < 0)
+			if (itens[i].getY() < 50)
 			{
 
 				yiStep = 1.2;
@@ -677,7 +684,7 @@ void Timer(int value)
 				yiStep = -1.2;
 			}
 
-			if (itens[i].getY() < 0)
+			if (itens[i].getY() < 50)
 			{
 
 				yiStep = 1.7;
@@ -705,7 +712,7 @@ void Timer(int value)
 				yiStep = -0.9;
 			}
 
-			if (itens[i].getY() < 0)
+			if (itens[i].getY() < 50)
 			{
 
 				yiStep = 0.9;
@@ -733,7 +740,7 @@ void Timer(int value)
 				yiStep = -1.3;
 			}
 
-			if (itens[i].getY() < 0)
+			if (itens[i].getY() < 50)
 			{
 
 				yiStep = 1.3;
@@ -752,27 +759,27 @@ void Timer(int value)
 
 			if (itens[i].getX() > 470)
 			{
-				xiStep = -0.3;
+				xjStep = -0.3;
 			}
 
 			if (itens[i].getX() < 0)
 			{
-				xiStep = 0.4;
+				xjStep = 0.4;
 			}
 			// Muda a direção quando chega na borda superior ou inferior
 			if (itens[i].getY() > 470)
 			{
-				yiStep = -0.6;
+				yjStep = -0.6;
 			}
 
-			if (itens[i].getY() < 0)
+			if (itens[i].getY() < 50)
 			{
 
-				yiStep = 0.9;
+				yjStep = 0.9;
 			}
 
-			itens[i].setX(itens[i].getX() + xiStep);
-			itens[i].setY(itens[i].getY() + yiStep);
+			itens[i].setX(itens[i].getX() + xjStep);
+			itens[i].setY(itens[i].getY() + yjStep);
 		}
 
 
@@ -781,27 +788,27 @@ void Timer(int value)
 
 			if (itens[i].getX() > 470)
 			{
-				xiStep = -0.5;
+				xjStep = -0.5;
 			}
 
 			if (itens[i].getX() < 0)
 			{
-				xiStep = 0.8;
+				xjStep = 0.8;
 			}
 			// Muda a direção quando chega na borda superior ou inferior
 			if (itens[i].getY() > 470)
 			{
-				yiStep = -1.1;
+				yjStep = -1.1;
 			}
 
-			if (itens[i].getY() < 0)
+			if (itens[i].getY() < 50)
 			{
 
-				yiStep = 1.0;
+				yjStep = 1.0;
 			}
 
-			itens[i].setX(itens[i].getX() + xiStep);
-			itens[i].setY(itens[i].getY() + yiStep);
+			itens[i].setX(itens[i].getX() + xjStep);
+			itens[i].setY(itens[i].getY() + yjStep);
 		}
 
 		else if (itens[i].getFase() == 3 && itens[i].getTipo() == 2)
@@ -809,27 +816,27 @@ void Timer(int value)
 
 			if (itens[i].getX() > 470)
 			{
-				xiStep = -0.4;
+				xjStep = -0.4;
 			}
 
 			if (itens[i].getX() < 0)
 			{
-				xiStep = 0.9;
+				xjStep = 0.9;
 			}
 			// Muda a direção quando chega na borda superior ou inferior
 			if (itens[i].getY() > 470)
 			{
-				yiStep = -0.6;
+				yjStep = -0.6;
 			}
 
-			if (itens[i].getY() < 0)
+			if (itens[i].getY() < 50)
 			{
 
-				yiStep = 1.7;
+				yjStep = 1.7;
 			}
 
-			itens[i].setX(itens[i].getX() + xiStep);
-			itens[i].setY(itens[i].getY() + yiStep);
+			itens[i].setX(itens[i].getX() + xjStep);
+			itens[i].setY(itens[i].getY() + yjStep);
 		}
 
 		else if (itens[i].getFase() == 4 && itens[i].getTipo() == 2)
@@ -837,27 +844,27 @@ void Timer(int value)
 
 			if (itens[i].getX() > 470)
 			{
-				xiStep = -0.3;
+				xjStep = -0.3;
 			}
 
 			if (itens[i].getX() < 0)
 			{
-				xiStep = 1.5;
+				xjStep = 1.5;
 			}
 			// Muda a direção quando chega na borda superior ou inferior
 			if (itens[i].getY() > 470)
 			{
-				yiStep = -0.9;
+				yjStep = -0.9;
 			}
 
-			if (itens[i].getY() < 0)
+			if (itens[i].getY() < 50)
 			{
 
-				yiStep = 1.9;
+				yjStep = 1.9;
 			}
 
-			itens[i].setX(itens[i].getX() + xiStep);
-			itens[i].setY(itens[i].getY() + yiStep);
+			itens[i].setX(itens[i].getX() + xjStep);
+			itens[i].setY(itens[i].getY() + yjStep);
 		}
 
 		else if (itens[i].getFase() == 5 && itens[i].getTipo() == 2)
@@ -865,27 +872,27 @@ void Timer(int value)
 
 			if (itens[i].getX() > 470)
 			{
-				xiStep = -1.7;
+				xjStep = -1.7;
 			}
 
 			if (itens[i].getX() < 0)
 			{
-				xiStep = 1.3;
+				xjStep = 1.3;
 			}
 			// Muda a direção quando chega na borda superior ou inferior
 			if (itens[i].getY() > 470)
 			{
-				yiStep = -1.9;
+				yjStep = -1.9;
 			}
 
-			if (itens[i].getY() < 0)
+			if (itens[i].getY() < 50)
 			{
 
-				yiStep = 2.3;
+				yjStep = 2.3;
 			}
 
-			itens[i].setX(itens[i].getX() + xiStep);
-			itens[i].setY(itens[i].getY() + yiStep);
+			itens[i].setX(itens[i].getX() + xjStep);
+			itens[i].setY(itens[i].getY() + yjStep);
 		}
 
 
@@ -2026,6 +2033,8 @@ void lerArquivoItem(char* nomeArquivo)
 
 void InicializaFase() {
 
+	PlaySound(TEXT("sons\\Ultraje a Rigor - Marylou.wav"), NULL, SND_ASYNC);
+
 	switch (fase) {
 	case 1:
 		nomeFase = "fase1.txt";
@@ -2723,7 +2732,8 @@ void DesenhaFase1(void)
 				//itens.erase(itens.begin() + i);
 				itens[i].setColide(0);
 				p1.setLife(p1.getLife() + 1);
-
+				PlaySound(TEXT("sons\\Iiirrá.wav"), NULL, SND_ASYNC);	
+				PlaySound(TEXT("sons\\Ultraje a Rigor - Marylou.wav"), NULL, SND_ASYNC);
 				break;
 
 			}
@@ -3171,6 +3181,7 @@ void DesenhaFase1(void)
 		glEnd();
 
 		sprintf(texto, "PASSEI");
+		PlaySound(TEXT("sons\\Venci.wav"), NULL, SND_ASYNC);
 
 		DesenhaTexto(texto, GLUT_BITMAP_TIMES_ROMAN_24, 280, 380);
 		// Executa os comandos OpenGL
