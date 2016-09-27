@@ -439,7 +439,7 @@ void InicializaPersonagem()
 
 void Timer(int value)
 {
-/*	GLint viewport[4]; //var to hold the viewport info
+	/*	GLint viewport[4]; //var to hold the viewport info
 	GLdouble modelview[16]; //var to hold the modelview info
 	GLdouble projection[16]; //var to hold the projection matrix info
 	GLfloat winX, winY, winZ; //variables to hold screen x,y,z coordinates
@@ -471,9 +471,9 @@ void Timer(int value)
 	{
 
 		// Muda a direção quando chega na borda esquerda ou direita
-		if (itens[i].getFase() == 1 && itens[i].getTipo()==1)
+		if (itens[i].getFase() == 1 && itens[i].getTipo() == 1)
 		{
-			
+
 			if (itens[i].getX() > 470)
 			{
 				xiStep = -0.7;
@@ -498,8 +498,8 @@ void Timer(int value)
 			itens[i].setX(itens[i].getX() + xiStep);
 			itens[i].setY(itens[i].getY() + yiStep);
 		}
-	
-	
+
+
 		else if (itens[i].getFase() == 2 && itens[i].getTipo() == 1)
 		{
 
@@ -615,13 +615,13 @@ void Timer(int value)
 
 
 
-}
+	}
 
 
 
 
 	// Verifica as bordas.  Se a window for menor e o 
-		// quadrado sair do volume de visualização 			
+	// quadrado sair do volume de visualização 			
 
 
 
@@ -633,7 +633,7 @@ void Timer(int value)
 
 
 
-		
+
 		if (p1.getY() > 250 && p1.getY() < 300)
 		{
 
@@ -646,7 +646,7 @@ void Timer(int value)
 		if (p1.getY() > 300 && p1.getY() < 350) {
 			if (p1.getColide() == 0)
 			{
-				p1.setX(p1.getX() + 0.8);
+				p1.setX(p1.getX() + 0.7);
 			}
 
 		}
@@ -663,7 +663,7 @@ void Timer(int value)
 		{
 			if (p1.getColide() == 0)
 			{
-				p1.setX(p1.getX() + 0.5);
+				p1.setX(p1.getX() + 0.3);
 			}
 		}
 	}
@@ -774,7 +774,7 @@ void Timer(int value)
 		{
 			if (p1.getColide() == 0)
 			{
-				p1.setX(p1.getX() + 0.7);
+				p1.setX(p1.getX() - 0.7);
 			}
 		}
 	}
@@ -820,7 +820,7 @@ void Timer(int value)
 
 
 	if (p1.getX() > 470) p1.setX(470);
-
+	if (p1.getX() < 0) p1.setX(0);
 	// Redesenha o fase1 com as novas coordenadas 
 	glutPostRedisplay();
 	glutTimerFunc(3.3, Timer, 1);
@@ -1808,7 +1808,7 @@ void lerArquivoItem(char* nomeArquivo)
 			if (verifica) {
 				Item item;
 				item.setTipo(value[i][0]);
-				item.setFase(value[i][1]);				
+				item.setFase(value[i][1]);
 				item.setX(value[i][2]);
 				item.setY(value[i][3]);
 				itens.push_back(item);
@@ -1859,8 +1859,6 @@ void Inicializa(void)
 	InicializaFase();
 
 
-
-
 	// Define a cor de fundo da janela de visualização como preta
 	glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
 	win = 150.0f;
@@ -1895,9 +1893,9 @@ void AlteraTamanhoJanela(GLsizei w, GLsizei h)
 }
 
 
-void desenhaItem1(float x,float y) {
+void desenhaItem1(float x, float y) {
 	glBegin(GL_QUADS);
-	glVertex2i(x,y + 20);
+	glVertex2i(x, y + 20);
 	glVertex2i(x, y + 10);
 	glVertex2i(x + 30, y + 10);
 	glVertex2i(x + 30, y + 20);
@@ -1910,12 +1908,38 @@ void desenhaItem1(float x,float y) {
 	glVertex2i(x + 20, y + 30);
 	glEnd();
 }
+
+void desenhaItem2(float x, float y) {
+	glVertex2i(x, y + 20);
+	glVertex2i(x, y + 10);
+	glVertex2i(x + 10, y);
+	glVertex2i(x + 20, y);
+	glVertex2i(x + 30, y + 10);
+	glVertex2i(x + 30, y + 20);
+	glVertex2i(x + 20, y + 30);
+	glVertex2i(x + 10, y + 30);
+	glVertex2i(x, y + 20);
+	glEnd();
+
+	glBegin(GL_POLYGON);
+	glColor3f(1.0f, 0.98f, 0.98f);
+	glVertex2i(x + 3, y + 20);
+	glVertex2i(x + 3, y + 10);
+	glVertex2i(x + 10, y + 3);
+	glVertex2i(x + 20, y + 3);
+	glVertex2i(x + 27, y + 10);
+	glVertex2i(x + 27, y + 20);
+	glVertex2i(x + 20, y + 27);
+	glVertex2i(x + 10, y + 27);
+	glVertex2i(x + 3, y + 20);
+	glEnd();
+}
 // Função que desenha um FASE1
 
 void DesenhaFase1(void)
 {
 	gameState = GameStates::PLAYING;
-	
+
 	glBegin(GL_QUADS);
 	glColor3f(1.0f, 0.5f, 0.0f);
 	glVertex2i(237, 324);
@@ -1957,76 +1981,378 @@ void DesenhaFase1(void)
 
 	glColor3f(0.0f, 0.0f, 0.0f);
 
-	glBegin(GL_QUADS);
+	if (primitiva == FASE1)
+	{
 
-	glColor3f(0.7f, 0.4f, 0.3f);
-	glVertex2i(0, 0);
-	glVertex2i(500, 0);
-	glVertex2i(500, 50);
-	glVertex2i(0, 50);
-	glEnd();
+		glBegin(GL_QUADS);
 
-
-
-	glBegin(GL_QUADS);
-	glColor3f(0.7f, 0.4f, 0.3f);
-	glVertex2i(0, 450);
-	glVertex2i(500, 450);
-	glVertex2i(500, 500);
-	glVertex2i(0, 500);
-	glEnd();
+		glColor3f(0.7f, 0.4f, 0.3f);
+		glVertex2i(0, 0);
+		glVertex2i(500, 0);
+		glVertex2i(500, 50);
+		glVertex2i(0, 50);
+		glEnd();
 
 
 
-	glBegin(GL_QUADS);
-
-	glColor3f(0.0f, 0.4f, 0.8f);
-	glVertex2i(0, 250);
-	glVertex2i(500, 250);
-	glVertex2i(500, 450);
-	glVertex2i(0, 450);
-	glEnd();
-
-
-	glBegin(GL_QUADS);
-
-	glColor3f(0.7f, 0.4f, 0.3f);
-	glVertex2i(0, 200);
-	glVertex2i(500, 200);
-	glVertex2i(500, 250);
-	glVertex2i(0, 250);
-	glEnd();
+		glBegin(GL_QUADS);
+		glColor3f(0.2f, 0.1f, 0.1f);
+		glVertex2i(0, 450);
+		glVertex2i(500, 450);
+		glVertex2i(500, 500);
+		glVertex2i(0, 500);
+		glEnd();
 
 
 
-	glBegin(GL_QUADS);
+		glBegin(GL_QUADS);
 
-	glColor3f(1.0f, 1.0f, 0.1f);
-	glVertex2i(50, 135);
-	glVertex2i(150, 135);
-	glVertex2i(150, 115);
-	glVertex2i(50, 115);
-	glEnd();
-
-
-	glBegin(GL_QUADS);
-
-	glColor3f(1.0f, 1.0f, 0.1f);
-	glVertex2i(250, 135);
-	glVertex2i(350, 135);
-	glVertex2i(350, 115);
-	glVertex2i(250, 115);
-	glEnd();
+		glColor3f(0.0f, 0.4f, 0.8f);
+		glVertex2i(0, 250);
+		glVertex2i(500, 250);
+		glVertex2i(500, 450);
+		glVertex2i(0, 450);
+		glEnd();
 
 
-	glBegin(GL_QUADS);
+		glBegin(GL_QUADS);
 
-	glColor3f(1.0f, 1.0f, 0.1f);
-	glVertex2i(450, 135);
-	glVertex2i(550, 135);
-	glVertex2i(550, 115);
-	glVertex2i(450, 115);
-	glEnd();
+		glColor3f(0.7f, 0.4f, 0.3f);
+		glVertex2i(0, 200);
+		glVertex2i(500, 200);
+		glVertex2i(500, 250);
+		glVertex2i(0, 250);
+		glEnd();
+
+
+
+		glBegin(GL_QUADS);
+
+		glColor3f(1.0f, 1.0f, 0.1f);
+		glVertex2i(50, 135);
+		glVertex2i(150, 135);
+		glVertex2i(150, 115);
+		glVertex2i(50, 115);
+		glEnd();
+
+
+		glBegin(GL_QUADS);
+
+		glColor3f(1.0f, 1.0f, 0.1f);
+		glVertex2i(250, 135);
+		glVertex2i(350, 135);
+		glVertex2i(350, 115);
+		glVertex2i(250, 115);
+		glEnd();
+
+
+		glBegin(GL_QUADS);
+
+		glColor3f(1.0f, 1.0f, 0.1f);
+		glVertex2i(450, 135);
+		glVertex2i(550, 135);
+		glVertex2i(550, 115);
+		glVertex2i(450, 115);
+		glEnd();
+
+	}
+	else if (primitiva == FASE2)
+	{
+		glBegin(GL_QUADS);
+
+		glColor3f(0.2f, 0.1f, 0.1f);
+		glVertex2i(0, 0);
+		glVertex2i(500, 0);
+		glVertex2i(500, 50);
+		glVertex2i(0, 50);
+		glEnd();
+
+
+
+		glBegin(GL_QUADS);
+		glColor3f(1.0f, 0.5f, 0.2f);
+		glVertex2i(0, 450);
+		glVertex2i(500, 450);
+		glVertex2i(500, 500);
+		glVertex2i(0, 500);
+		glEnd();
+
+
+
+		glBegin(GL_QUADS);
+
+		glColor3f(0.0f, 0.4f, 0.8f);
+		glVertex2i(0, 250);
+		glVertex2i(500, 250);
+		glVertex2i(500, 450);
+		glVertex2i(0, 450);
+		glEnd();
+
+
+		glBegin(GL_QUADS);
+
+		glColor3f(0.7f, 0.4f, 0.3f);
+		glVertex2i(0, 200);
+		glVertex2i(500, 200);
+		glVertex2i(500, 250);
+		glVertex2i(0, 250);
+		glEnd();
+
+
+
+		glBegin(GL_QUADS);
+
+		glColor3f(1.0f, 1.0f, 0.1f);
+		glVertex2i(50, 135);
+		glVertex2i(150, 135);
+		glVertex2i(150, 115);
+		glVertex2i(50, 115);
+		glEnd();
+
+
+		glBegin(GL_QUADS);
+
+		glColor3f(1.0f, 1.0f, 0.1f);
+		glVertex2i(250, 135);
+		glVertex2i(350, 135);
+		glVertex2i(350, 115);
+		glVertex2i(250, 115);
+		glEnd();
+
+
+		glBegin(GL_QUADS);
+
+		glColor3f(1.0f, 1.0f, 0.1f);
+		glVertex2i(450, 135);
+		glVertex2i(550, 135);
+		glVertex2i(550, 115);
+		glVertex2i(450, 115);
+		glEnd();
+
+	}
+
+	else if (primitiva == FASE3)
+	{
+		glBegin(GL_QUADS);
+
+		glColor3f(1.0f, 0.5f, 0.2f);
+		glVertex2i(0, 0);
+		glVertex2i(500, 0);
+		glVertex2i(500, 50);
+		glVertex2i(0, 50);
+		glEnd();
+
+
+
+		glBegin(GL_QUADS);
+		glColor3f(0.1f, 0.3f, 0.8f);
+		glVertex2i(0, 450);
+		glVertex2i(500, 450);
+		glVertex2i(500, 500);
+		glVertex2i(0, 500);
+		glEnd();
+
+
+
+		glBegin(GL_QUADS);
+
+		glColor3f(0.4f, 0.5f, 0.1f);
+		glVertex2i(0, 250);
+		glVertex2i(500, 250);
+		glVertex2i(500, 450);
+		glVertex2i(0, 450);
+		glEnd();
+
+
+		glBegin(GL_QUADS);
+
+		glColor3f(0.7f, 0.4f, 0.3f);
+		glVertex2i(0, 200);
+		glVertex2i(500, 200);
+		glVertex2i(500, 250);
+		glVertex2i(0, 250);
+		glEnd();
+
+
+
+		glBegin(GL_QUADS);
+
+		glColor3f(1.0f, 1.0f, 0.1f);
+		glVertex2i(50, 135);
+		glVertex2i(150, 135);
+		glVertex2i(150, 115);
+		glVertex2i(50, 115);
+		glEnd();
+
+
+		glBegin(GL_QUADS);
+
+		glColor3f(1.0f, 1.0f, 0.1f);
+		glVertex2i(250, 135);
+		glVertex2i(350, 135);
+		glVertex2i(350, 115);
+		glVertex2i(250, 115);
+		glEnd();
+
+
+		glBegin(GL_QUADS);
+
+		glColor3f(1.0f, 1.0f, 0.1f);
+		glVertex2i(450, 135);
+		glVertex2i(550, 135);
+		glVertex2i(550, 115);
+		glVertex2i(450, 115);
+		glEnd();
+
+	}
+	else if (primitiva == FASE4)
+	{
+		glBegin(GL_QUADS);
+
+		glColor3f(0.1f, 0.3f, 0.8f);
+		glVertex2i(0, 0);
+		glVertex2i(500, 0);
+		glVertex2i(500, 50);
+		glVertex2i(0, 50);
+		glEnd();
+
+
+
+		glBegin(GL_QUADS);
+		glColor3f(0.2f, 0.0f, 0.0f);
+		glVertex2i(0, 450);
+		glVertex2i(500, 450);
+		glVertex2i(500, 500);
+		glVertex2i(0, 500);
+		glEnd();
+
+
+
+		glBegin(GL_QUADS);
+
+		glColor3f(0.0f, 0.4f, 0.8f);
+		glVertex2i(0, 250);
+		glVertex2i(500, 250);
+		glVertex2i(500, 450);
+		glVertex2i(0, 450);
+		glEnd();
+
+
+		glBegin(GL_QUADS);
+
+		glColor3f(0.7f, 0.4f, 0.3f);
+		glVertex2i(0, 200);
+		glVertex2i(500, 200);
+		glVertex2i(500, 250);
+		glVertex2i(0, 250);
+		glEnd();
+
+
+
+		glBegin(GL_QUADS);
+
+		glColor3f(1.0f, 1.0f, 0.1f);
+		glVertex2i(50, 135);
+		glVertex2i(150, 135);
+		glVertex2i(150, 115);
+		glVertex2i(50, 115);
+		glEnd();
+
+
+		glBegin(GL_QUADS);
+
+		glColor3f(1.0f, 1.0f, 0.1f);
+		glVertex2i(250, 135);
+		glVertex2i(350, 135);
+		glVertex2i(350, 115);
+		glVertex2i(250, 115);
+		glEnd();
+
+
+		glBegin(GL_QUADS);
+
+		glColor3f(1.0f, 1.0f, 0.1f);
+		glVertex2i(450, 135);
+		glVertex2i(550, 135);
+		glVertex2i(550, 115);
+		glVertex2i(450, 115);
+		glEnd();
+
+	}
+	else if (primitiva == FASE5)
+	{
+		glBegin(GL_QUADS);
+
+		glColor3f(0.2f, 0.0f, 0.0f);
+		glVertex2i(0, 0);
+		glVertex2i(500, 0);
+		glVertex2i(500, 50);
+		glVertex2i(0, 50);
+		glEnd();
+
+
+
+		glBegin(GL_QUADS);
+		glColor3f(0.0f, 0.0f, 0.9f);
+		glVertex2i(0, 450);
+		glVertex2i(500, 450);
+		glVertex2i(500, 500);
+		glVertex2i(0, 500);
+		glEnd();
+
+
+
+		glBegin(GL_QUADS);
+
+		glColor3f(1.0f, 0.1f, 0.1f);
+		glVertex2i(0, 250);
+		glVertex2i(500, 250);
+		glVertex2i(500, 450);
+		glVertex2i(0, 450);
+		glEnd();
+
+
+		glBegin(GL_QUADS);
+
+		glColor3f(0.7f, 0.4f, 0.3f);
+		glVertex2i(0, 200);
+		glVertex2i(500, 200);
+		glVertex2i(500, 250);
+		glVertex2i(0, 250);
+		glEnd();
+
+
+
+		glBegin(GL_QUADS);
+
+		glColor3f(1.0f, 1.0f, 0.1f);
+		glVertex2i(50, 135);
+		glVertex2i(150, 135);
+		glVertex2i(150, 115);
+		glVertex2i(50, 115);
+		glEnd();
+
+
+		glBegin(GL_QUADS);
+
+		glColor3f(1.0f, 1.0f, 0.1f);
+		glVertex2i(250, 135);
+		glVertex2i(350, 135);
+		glVertex2i(350, 115);
+		glVertex2i(250, 115);
+		glEnd();
+
+
+		glBegin(GL_QUADS);
+
+		glColor3f(1.0f, 1.0f, 0.1f);
+		glVertex2i(450, 135);
+		glVertex2i(550, 135);
+		glVertex2i(550, 115);
+		glVertex2i(450, 115);
+		glEnd();
+
+	}
 
 
 
@@ -2069,7 +2395,7 @@ void DesenhaFase1(void)
 	for (int i = 0; i < madeiras.size(); i++) {
 
 		glBegin(GL_QUADS);
-		glColor3f(0.4f, 0.4f, 0.4f);
+		glColor3f(0.5f, 0.2f, 0.1f);
 		glVertex2i(GLint(madeiras[i].getX()), GLint(madeiras[i].getY() + madeiras[i].getHeight()));
 		glVertex2i(GLint(madeiras[i].getX()), GLint(madeiras[i].getY()));
 		glVertex2i(GLint(madeiras[i].getX() + madeiras[i].getWidth()), GLint(madeiras[i].getY()));
@@ -2105,7 +2431,7 @@ void DesenhaFase1(void)
 
 	}
 
-	if(!itemColetadoFase){
+	if (!itemColetadoFase) {
 
 		for (int i = 0; i < itens.size(); i++) {
 
@@ -2115,13 +2441,17 @@ void DesenhaFase1(void)
 			if (itens[i].getFase() == 1 && itens[i].getTipo() == 1 && primitiva == FASE1)
 			{
 				desenhaItem1(itens[i].getX(), itens[i].getY());
-			} else if (itens[i].getFase() == 2 && itens[i].getTipo() == 1 && primitiva == FASE2) {
+			}
+			else if (itens[i].getFase() == 2 && itens[i].getTipo() == 1 && primitiva == FASE2) {
 				desenhaItem1(itens[i].getX(), itens[i].getY());
-			} else if (itens[i].getFase() == 3 && itens[i].getTipo() == 1 && primitiva == FASE3) {
+			}
+			else if (itens[i].getFase() == 3 && itens[i].getTipo() == 1 && primitiva == FASE3) {
 				desenhaItem1(itens[i].getX(), itens[i].getY());
-			} else if (itens[i].getFase() == 4 && itens[i].getTipo() == 1 && primitiva == FASE4) {
+			}
+			else if (itens[i].getFase() == 4 && itens[i].getTipo() == 1 && primitiva == FASE4) {
 				desenhaItem1(itens[i].getX(), itens[i].getY());
-			} else if (itens[i].getFase() == 5 && itens[i].getTipo() == 1 && primitiva == FASE5) {
+			}
+			else if (itens[i].getFase() == 5 && itens[i].getTipo() == 1 && primitiva == FASE5) {
 				desenhaItem1(itens[i].getX(), itens[i].getY());
 			}
 
@@ -2129,77 +2459,92 @@ void DesenhaFase1(void)
 
 
 
-	int contador = 0;
-	int itemColetado = 0;
-	
+		int contador = 0;
+		int itemColetado = 0;
 
-	for (int i = 0; i < itens.size(); i++) {
 
-		itens[i].colideTeste(p1);
-		if (itens[i].getFase() == 1 && itens[i].getTipo() == 1 && itens[i].getColide() == 1 ){
-			contador++;
-			itemColetado = i;
-			itens[i].setTipo(6);
-			//itens.erase(itens.begin() + i);
-			itens[i].setColide(0);
-			cout << "contador" << contador;
-			break;
+		for (int i = 0; i < itens.size(); i++) {
 
-		} else if (itens[i].getFase() == 2 && itens[i].getTipo() == 1 && itens[i].getColide() == 1) {
-			contador++;
-			itemColetado = i;
-			itens[i].setTipo(6);
-			//itens.erase(itens.begin() + i);
-			itens[i].setColide(0);
-			cout << "contador" << contador;
-			break;
+			itens[i].colideTeste(p1);
+			if (itens[i].getFase() == 1 && itens[i].getTipo() == 1 && itens[i].getColide() == 1) {
+				contador++;
+				itemColetado = i;
+				itens[i].setTipo(6);
+				//itens.erase(itens.begin() + i);
+				itens[i].setColide(0);
+				cout << "contador" << contador;
+				p1.setLife(p1.getLife() + 1);
 
-		}  else if (itens[i].getFase() == 3 && itens[i].getTipo() == 1 && itens[i].getColide() == 1) {
-			contador++;
-			itemColetado = i;
-			itens[i].setTipo(6);
-			//itens.erase(itens.begin() + i);
-			itens[i].setColide(0);
-			cout << "contador" << contador;
-			break;
+				break;
 
-		} else if  (itens[i].getFase() == 4 && itens[i].getTipo() == 1 && itens[i].getColide() == 1) {
-			contador++;
-			itemColetado = i;
-			itens[i].setTipo(6);
-			//itens.erase(itens.begin() + i);
-			itens[i].setColide(0);
-			cout << "contador" << contador;
-			break;
+			}
+			else if (itens[i].getFase() == 2 && itens[i].getTipo() == 1 && itens[i].getColide() == 1) {
+				contador++;
+				itemColetado = i;
+				itens[i].setTipo(6);
+				//itens.erase(itens.begin() + i);
+				itens[i].setColide(0);
+				cout << "contador" << contador;
+				p1.setLife(p1.getLife() + 1);
 
-		} else if (itens[i].getFase() == 5 && itens[i].getTipo() == 1 && itens[i].getColide() == 1) {
-			contador++;
-			itemColetado = i;
-			itens[i].setTipo(6);
-			//itens.erase(itens.begin() + i);
-			itens[i].setColide(0);
-			cout << "contador" << contador;
-			break;
+				break;
+
+			}
+			else if (itens[i].getFase() == 3 && itens[i].getTipo() == 1 && itens[i].getColide() == 1) {
+				contador++;
+				itemColetado = i;
+				itens[i].setTipo(6);
+				//itens.erase(itens.begin() + i);
+				itens[i].setColide(0);
+				cout << "contador" << contador;
+				p1.setLife(p1.getLife() + 1);
+
+				break;
+
+			}
+			else if (itens[i].getFase() == 4 && itens[i].getTipo() == 1 && itens[i].getColide() == 1) {
+				contador++;
+				itemColetado = i;
+				itens[i].setTipo(6);
+				//itens.erase(itens.begin() + i);
+				itens[i].setColide(0);
+				cout << "contador" << contador;
+				p1.setLife(p1.getLife() + 1);
+
+				break;
+
+			}
+			else if (itens[i].getFase() == 5 && itens[i].getTipo() == 1 && itens[i].getColide() == 1) {
+				contador++;
+				itemColetado = i;
+				itens[i].setTipo(6);
+				//itens.erase(itens.begin() + i);
+				itens[i].setColide(0);
+				cout << "contador" << contador;
+				p1.setLife(p1.getLife() + 1);
+
+				break;
+
+			}
+
+			//cout<< "COLIDE "<< itens[i].getColide()<< "contador" << contador;
 
 		}
 
-		//cout<< "COLIDE "<< itens[i].getColide()<< "contador" << contador;
-	
-	}
+		//cout << "contador" << contador;
 
-	//cout << "contador" << contador;
+		/*if (p1.getLife()<5 && itens[itemColetado].getTipo() ==6 ) {
+		itens.erase(itens.begin() + itemColetado);
+		cout << "Contador";
+		itens[itemColetado].setColide(0);
+		p1.setLife(p1.getLife() + 1);
 
-		if (p1.getLife()<5 && itens[itemColetado].getTipo() ==6 ) {
-			itens.erase(itens.begin() + itemColetado);
-			cout << "Contador";
-			p1.setLife(p1.getLife() + 1);
-			itens[itemColetado].setColide(0);
-		}
+		}*/
 	}
 
 
 
-
+	p1.vidaMax();
 
 
 

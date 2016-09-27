@@ -92,6 +92,12 @@ public:
 		return colide;
 	}
 
-
+	void vidaMax()
+	{
+		if (getLife() >= 5)
+		{
+			setLife(5);
+		}
+	}
 
 };
