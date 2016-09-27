@@ -64,6 +64,8 @@ GLfloat ystep = 1.0f;
 GLfloat windowWidth;
 GLfloat windowHeight;
 
+bool itemColetadoFase = false;
+
 
 // Constantes
 #define FASE1 1
@@ -1892,6 +1894,22 @@ void AlteraTamanhoJanela(GLsizei w, GLsizei h)
 		gluOrtho2D(0.0f, 500.0f*w / h, 0.0f, 500.0f);
 }
 
+
+void desenhaItem1(float x,float y) {
+	glBegin(GL_QUADS);
+	glVertex2i(x,y + 20);
+	glVertex2i(x, y + 10);
+	glVertex2i(x + 30, y + 10);
+	glVertex2i(x + 30, y + 20);
+	glEnd();
+
+	glBegin(GL_QUADS);
+	glVertex2i(x + 10, y + 30);
+	glVertex2i(x + 10, y);
+	glVertex2i(x + 20, y);
+	glVertex2i(x + 20, y + 30);
+	glEnd();
+}
 // Função que desenha um FASE1
 
 void DesenhaFase1(void)
@@ -2071,7 +2089,7 @@ void DesenhaFase1(void)
 	if (p1.getY() > 255 && p1.getY() < 450)
 	{
 
-		for (int i = 0; i < madeiras.size(); i++) {
+		/*for (int i = 0; i < madeiras.size(); i++) {
 
 			madeiras[i].colideTeste(p1);
 
@@ -2082,56 +2100,100 @@ void DesenhaFase1(void)
 
 		if (cont == 0) {
 			p1.setX(250); p1.setY(10); 			p1.setLife(p1.getLife() - 1);
-		}
+		}*/
 
 
 	}
 
-	for (int i = 0; i < itens.size(); i++) {
+	if(!itemColetadoFase){
 
-		glColor3f(0.8f, 0.1f, 0.1f);
+		for (int i = 0; i < itens.size(); i++) {
+
+			glColor3f(0.8f, 0.1f, 0.1f);
 
 
-		if (itens[i].getFase() == 1 && itens[i].getTipo() == 1)
-		{
-			glBegin(GL_QUADS);
-			glVertex2i(itens[i].getX(), itens[i].getY() + 20);
-			glVertex2i(itens[i].getX(), itens[i].getY() + 10);
-			glVertex2i(itens[i].getX() + 30, itens[i].getY() + 10);
-			glVertex2i(itens[i].getX() + 30, itens[i].getY() + 20);
-			glEnd();
+			if (itens[i].getFase() == 1 && itens[i].getTipo() == 1 && primitiva == FASE1)
+			{
+				desenhaItem1(itens[i].getX(), itens[i].getY());
+			} else if (itens[i].getFase() == 2 && itens[i].getTipo() == 1 && primitiva == FASE2) {
+				desenhaItem1(itens[i].getX(), itens[i].getY());
+			} else if (itens[i].getFase() == 3 && itens[i].getTipo() == 1 && primitiva == FASE3) {
+				desenhaItem1(itens[i].getX(), itens[i].getY());
+			} else if (itens[i].getFase() == 4 && itens[i].getTipo() == 1 && primitiva == FASE4) {
+				desenhaItem1(itens[i].getX(), itens[i].getY());
+			} else if (itens[i].getFase() == 5 && itens[i].getTipo() == 1 && primitiva == FASE5) {
+				desenhaItem1(itens[i].getX(), itens[i].getY());
+			}
 
-			glBegin(GL_QUADS);
-			glVertex2i(itens[i].getX() + 10, itens[i].getY() + 30);
-			glVertex2i(itens[i].getX() + 10, itens[i].getY());
-			glVertex2i(itens[i].getX() + 20, itens[i].getY());
-			glVertex2i(itens[i].getX() + 20, itens[i].getY() + 30);
-			glEnd();
 		}
 
-	}
 
 
-
+	int contador = 0;
+	int itemColetado = 0;
+	
 
 	for (int i = 0; i < itens.size(); i++) {
 
 		itens[i].colideTeste(p1);
-		if (itens[i].getColide() == 1)
-		{
-
+		if (itens[i].getFase() == 1 && itens[i].getTipo() == 1 && itens[i].getColide() == 1 ){
+			contador++;
+			itemColetado = i;
 			itens[i].setTipo(6);
 			//itens.erase(itens.begin() + i);
 			itens[i].setColide(0);
-		
-
-		if (p1.getLife()<5) {
-			p1.setLife(p1.getLife() + 1);
-			itens[i].setColide(0);
+			cout << "contador" << contador;
 			break;
 
-				}
-		
+		} else if (itens[i].getFase() == 2 && itens[i].getTipo() == 1 && itens[i].getColide() == 1) {
+			contador++;
+			itemColetado = i;
+			itens[i].setTipo(6);
+			//itens.erase(itens.begin() + i);
+			itens[i].setColide(0);
+			cout << "contador" << contador;
+			break;
+
+		}  else if (itens[i].getFase() == 3 && itens[i].getTipo() == 1 && itens[i].getColide() == 1) {
+			contador++;
+			itemColetado = i;
+			itens[i].setTipo(6);
+			//itens.erase(itens.begin() + i);
+			itens[i].setColide(0);
+			cout << "contador" << contador;
+			break;
+
+		} else if  (itens[i].getFase() == 4 && itens[i].getTipo() == 1 && itens[i].getColide() == 1) {
+			contador++;
+			itemColetado = i;
+			itens[i].setTipo(6);
+			//itens.erase(itens.begin() + i);
+			itens[i].setColide(0);
+			cout << "contador" << contador;
+			break;
+
+		} else if (itens[i].getFase() == 5 && itens[i].getTipo() == 1 && itens[i].getColide() == 1) {
+			contador++;
+			itemColetado = i;
+			itens[i].setTipo(6);
+			//itens.erase(itens.begin() + i);
+			itens[i].setColide(0);
+			cout << "contador" << contador;
+			break;
+
+		}
+
+		//cout<< "COLIDE "<< itens[i].getColide()<< "contador" << contador;
+	
+	}
+
+	//cout << "contador" << contador;
+
+		if (p1.getLife()<5 && itens[itemColetado].getTipo() ==6 ) {
+			itens.erase(itens.begin() + itemColetado);
+			cout << "Contador";
+			p1.setLife(p1.getLife() + 1);
+			itens[itemColetado].setColide(0);
 		}
 	}
 
@@ -2333,6 +2395,7 @@ void DesenhaFase1(void)
 			primitiva = VITORIA;
 			fase = 1;
 		}
+		itemColetadoFase = false;
 
 		glClearColor(1.0f, 1.0f, 1.0f, 0.0f);
 		glClear(GL_COLOR_BUFFER_BIT);
@@ -2469,6 +2532,7 @@ void DesenhaFase1(void)
 
 
 }
+
 
 
 // Função que desenha um triângulo
