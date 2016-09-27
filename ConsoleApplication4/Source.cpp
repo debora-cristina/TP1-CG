@@ -67,7 +67,7 @@ bool itemColetadoFase = false;
 
 // Constantes
 #define FASE1 1
-#define TRIANGULO 2
+#define CREDITOS 2
 #define Opcoes   3
 #define MENU 4
 #define ANIMACAO 5
@@ -93,7 +93,7 @@ int tempo = 0;
 int tempoColisaoItem = 0;
 int tempoColisao;
 char* nomeFase;
-bool desenhaRelogio = false;
+bool reducaoVelocidade = false;
 
 bool fullScreen = false;
 
@@ -126,7 +126,7 @@ void GerenciaTeclado(unsigned char key, int x, int y)
 		break1 = 1;
 		break;
 	case 8:
-		if (primitiva == Opcoes)
+		if (primitiva == Opcoes||primitiva==CREDITOS)
 		{
 			primitiva = MENU;
 		}
@@ -439,33 +439,28 @@ void InicializaPersonagem()
 	p1.setX(250);
 	p1.setY(10);
 }
+void controlarVelocidade() {
 
-
-void Timer(int value)
-{
-
-	if (desenhaRelogio) {
-		for (int i = 0; i < caminhoes.size(); i++) {
-			caminhoes[i].setX(caminhoes[i].getX() + (caminhoes[i].getVelocidade()/3));
+	for (int i = 0; i < caminhoes.size(); i++) {
+		if (reducaoVelocidade) {
+			caminhoes[i].setX(caminhoes[i].getX() + (caminhoes[i].getVelocidade() / 3));
 		}
-
-		for (int i = 0; i < madeiras.size(); i++) {
-			madeiras[i].setX(madeiras[i].getX() + (madeiras[i].getVelocidade()/3));
-		}
-	}
-	else {
-		for (int i = 0; i < caminhoes.size(); i++) {
+		else {
 			caminhoes[i].setX(caminhoes[i].getX() + caminhoes[i].getVelocidade());
 		}
-
-		for (int i = 0; i < madeiras.size(); i++) {
-			madeiras[i].setX(madeiras[i].getX() + madeiras[i].getVelocidade() );
-		}
-
 	}
 
+	for (int i = 0; i < madeiras.size(); i++) {
+		if (reducaoVelocidade) {
+			madeiras[i].setX(madeiras[i].getX() + (madeiras[i].getVelocidade() / 3));
+		}
+		else {
+			madeiras[i].setX(madeiras[i].getX() + madeiras[i].getVelocidade());
+		}
+	}
+}
 
-
+void controlarItens() {
 	for (int i = 0; i < itens.size(); i++)
 	{
 
@@ -616,8 +611,7 @@ void Timer(int value)
 		if (itens[i].getFase() == 1 && itens[i].getTipo() == 1)
 		{
 
-			if (itens[i].getX() > 470)
-			{
+			if (itens[i].getX() > 470){
 				xiStep = -0.7;
 			}
 
@@ -754,10 +748,6 @@ void Timer(int value)
 			itens[i].setY(itens[i].getY() + yiStep);
 		}
 
-
-
-
-		// Muda a direção quando chega na borda esquerda ou direita
 		if (itens[i].getFase() == 1 && itens[i].getTipo() == 2)
 		{
 
@@ -904,18 +894,18 @@ void Timer(int value)
 
 
 
+}
 
-	// Verifica as bordas.  Se a window for menor e o 
-	// quadrado sair do volume de visualização 			
+void Timer(int value)
+{
 
+
+	controlarVelocidade();
+	controlarItens();
 
 
 	if (primitiva == FASE1)
 	{
-
-
-
-
 
 		if (p1.getY() > 250 && p1.getY() < 300)
 		{
@@ -1103,7 +1093,7 @@ void Timer(int value)
 
 	if (p1.getX() > 470) p1.setX(470);
 	if (p1.getX() < 0) p1.setX(0);
-	// Redesenha o fase1 com as novas coordenadas 
+	
 	glutPostRedisplay();
 	glutTimerFunc(3.3, Timer, 1);
 
@@ -2068,8 +2058,6 @@ void Inicializa(void)
 	InicializaFase(1);
 
 
-
-
 	// Define a cor de fundo da janela de visualização como preta
 	glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
 	win = 150.0f;
@@ -2103,6 +2091,23 @@ void AlteraTamanhoJanela(GLsizei w, GLsizei h)
 		gluOrtho2D(0.0f, 500.0f*w / h, 0.0f, 500.0f);
 }
 
+
+
+void desenhaItem1(float x, float y) {
+	glBegin(GL_QUADS);
+	glVertex2i(x, y + 20);
+	glVertex2i(x, y + 10);
+	glVertex2i(x + 30, y + 10);
+	glVertex2i(x + 30, y + 20);
+	glEnd();
+
+	glBegin(GL_QUADS);
+	glVertex2i(x + 10, y + 30);
+	glVertex2i(x + 10, y);
+	glVertex2i(x + 20, y);
+	glVertex2i(x + 20, y + 30);
+	glEnd();
+}
 
 void desenhaItem2(float x, float y) {
 	glBegin(GL_POLYGON);
@@ -2149,68 +2154,7 @@ void desenhaItem2(float x, float y) {
 
 }
 
-void desenhaItem1(float x, float y) {
-	glBegin(GL_QUADS);
-	glVertex2i(x, y + 20);
-	glVertex2i(x, y + 10);
-	glVertex2i(x + 30, y + 10);
-	glVertex2i(x + 30, y + 20);
-	glEnd();
-
-	glBegin(GL_QUADS);
-	glVertex2i(x + 10, y + 30);
-	glVertex2i(x + 10, y);
-	glVertex2i(x + 20, y);
-	glVertex2i(x + 20, y + 30);
-	glEnd();
-}
-// Função que desenha um FASE1
-
-void DesenhaFase1(void)
-{
-	gameState = GameStates::PLAYING;
-
-	glBegin(GL_QUADS);
-	glColor3f(1.0f, 0.5f, 0.0f);
-	glVertex2i(237, 324);
-	glVertex2i(263, 324);
-
-	glVertex2i(263, 314);
-	glVertex2i(237, 314);
-	glEnd();
-
-	glColor3f(1.0f, 0.0f, 0.0f);
-	glVertex2i(250, 250);
-	glVertex2i(300, 250);
-	glVertex2i(250, 300);
-	glVertex2i(300, 300);
-	glEnd();
-
-
-	glClear(GL_COLOR_BUFFER_BIT);
-
-	GLint viewport[4]; //var to hold the viewport info
-	GLdouble modelview[16]; //var to hold the modelview info
-	GLdouble projection[16]; //var to hold the projection matrix info
-	GLfloat winX, winY, winZ; //variables to hold screen x,y,z coordinates
-	GLdouble worldX, worldY, worldZ; //variables to hold world x,y,z coordinates
-
-	glGetDoublev(GL_MODELVIEW_MATRIX, modelview); //get the modelview info
-	glGetDoublev(GL_PROJECTION_MATRIX, projection); //get the projection matrix info
-	glGetIntegerv(GL_VIEWPORT, viewport); //get the viewport info
-
-	winX = (float)p1.getX();
-	winY = (float)viewport[3] - (float)p1.getY();
-	winZ = 0;
-
-	//get the world coordinates from the screen coordinates
-	gluUnProject(winX, winY, winZ, modelview, projection, viewport, &worldX, &worldY, &worldZ);
-
-
-	glClear(GL_COLOR_BUFFER_BIT);
-
-	glColor3f(0.0f, 0.0f, 0.0f);
-
+void desenharCenario() {
 	if (primitiva == FASE1)
 	{
 
@@ -2585,7 +2529,24 @@ void DesenhaFase1(void)
 	}
 
 
+}
 
+void verificarColisaoCaminhao() {
+	for (int i = 0; i < caminhoes.size(); i++) {
+
+		caminhoes[i].colideTeste(p1);
+
+		if (caminhoes[i].getColide() == 1) {
+			p1.setX(250);
+			p1.setY(10);
+			caminhoes[i].setColide(0);
+			p1.setLife(p1.getLife() - 1);
+		}
+	}
+}
+
+void movimentarCaminhao() {
+	
 	for (int i = 0; i < caminhoes.size(); i++) {
 		glBegin(GL_QUADS);
 		glColor3f(0.4f, 0.4f, 0.4f);
@@ -2603,22 +2564,32 @@ void DesenhaFase1(void)
 		}
 	}
 
-	for (int i = 0; i < caminhoes.size(); i++) {
+	verificarColisaoCaminhao();
 
-		caminhoes[i].colideTeste(p1);
+}
 
-		if (caminhoes[i].getColide() == 1) {
-			p1.setX(250);
-			p1.setY(10);
-			caminhoes[i].setColide(0);
-			p1.setLife(p1.getLife() - 1);
+void verificarColisaoMadeira() {
+	int cont = 0;
+	if (p1.getY() > 255 && p1.getY() < 450)
+	{
+
+		for (int i = 0; i < madeiras.size(); i++) {
+
+			madeiras[i].colideTeste(p1);
+
+			if (madeiras[i].getColide() == 1) {
+				cont++;
+			}
 		}
+
+		if (cont == 0) {
+			p1.setX(250); p1.setY(10); 			p1.setLife(p1.getLife() - 1);
+		}
+
 	}
+}
 
-
-
-
-
+void movimentarMadeiras(){
 	for (int i = 0; i < madeiras.size(); i++) {
 
 		glBegin(GL_QUADS);
@@ -2638,26 +2609,12 @@ void DesenhaFase1(void)
 			madeiras[i].setX(500);
 		}
 	}
-	int cont = 0;
-	if (p1.getY() > 255 && p1.getY() < 450)
-	{
-
-		for (int i = 0; i < madeiras.size(); i++) {
-
-			madeiras[i].colideTeste(p1);
-
-			if (madeiras[i].getColide() == 1) {
-				cont++;
-			}
-		}
-
-		if (cont == 0) {
-			p1.setX(250); p1.setY(10); 			p1.setLife(p1.getLife() - 1);
-		}
+	
+	verificarColisaoMadeira();
+}
 
 
-	}
-
+void verificaColisaoItem() {
 	if (!itemColetadoFase) {
 
 		for (int i = 0; i < itens.size(); i++) {
@@ -2707,51 +2664,34 @@ void DesenhaFase1(void)
 
 
 		}
-
-
-
-		int contador = 0;
-		int itemColetado = 0;
-
-
 		tempo = tempo + 1;
 
-		/*if(p1.getX()<30)
-		{
-		Timer3();
-		}*/
 
+		int itemColetado = 0;
 		for (int i = 0; i < itens.size(); i++) {
 
 			itens[i].colideTeste(p1);
 			if (itens[i].getFase() == 1 && itens[i].getTipo() == 1 && itens[i].getColide() == 1) {
-				contador++;
 				itemColetado = i;
 				itens[i].setTipo(6);
-				//itens.erase(itens.begin() + i);
 				itens[i].setColide(0);
 				p1.setLife(p1.getLife() + 1);
-				PlaySound(TEXT("sons\\Iiirrá.wav"), NULL, SND_ASYNC);	
-				PlaySound(TEXT("sons\\Ultraje a Rigor - Marylou.wav"), NULL, SND_ASYNC);
+				//PlaySound(TEXT("sons\\Ambulancia besta.wav"), NULL, SND_ASYNC);
+				//PlaySound(TEXT("sons\\Ultraje a Rigor - Marylou.wav"), NULL, SND_LOOP | SND_ASYNC);
 				break;
 
 			}
 			else if (itens[i].getFase() == 2 && itens[i].getTipo() == 1 && itens[i].getColide() == 1) {
-				contador++;
 				itemColetado = i;
 				itens[i].setTipo(6);
-				//itens.erase(itens.begin() + i);
 				itens[i].setColide(0);
 				p1.setLife(p1.getLife() + 1);
-
 				break;
 
 			}
 			else if (itens[i].getFase() == 3 && itens[i].getTipo() == 1 && itens[i].getColide() == 1) {
-				contador++;
 				itemColetado = i;
 				itens[i].setTipo(6);
-				//itens.erase(itens.begin() + i);
 				itens[i].setColide(0);
 				p1.setLife(p1.getLife() + 1);
 
@@ -2759,10 +2699,8 @@ void DesenhaFase1(void)
 
 			}
 			else if (itens[i].getFase() == 4 && itens[i].getTipo() == 1 && itens[i].getColide() == 1) {
-				contador++;
 				itemColetado = i;
 				itens[i].setTipo(6);
-				//itens.erase(itens.begin() + i);
 				itens[i].setColide(0);
 				p1.setLife(p1.getLife() + 1);
 
@@ -2770,10 +2708,8 @@ void DesenhaFase1(void)
 
 			}
 			else if (itens[i].getFase() == 5 && itens[i].getTipo() == 1 && itens[i].getColide() == 1) {
-				contador++;
 				itemColetado = i;
 				itens[i].setTipo(6);
-				//itens.erase(itens.begin() + i);
 				itens[i].setColide(0);
 				p1.setLife(p1.getLife() + 1);
 
@@ -2781,108 +2717,66 @@ void DesenhaFase1(void)
 
 			}
 
-
-
 			if (itens[i].getFase() == 1 && itens[i].getTipo() == 2 && itens[i].getColide() == 1) {
-				contador++;
 				itemColetado = i;
 				itens[i].setTipo(6);
-				//itens.erase(itens.begin() + i);
 				itens[i].setColide(0);
-				//Timer3();
-				desenhaRelogio = true;
-
+				reducaoVelocidade = true;
 				tempoColisaoItem = tempo;
-
-				//if (tempo=tempoColisaoItem+5)
-
-
-
+				//PlaySound(TEXT("sons\\Relogio.wav"), NULL, SND_ASYNC);
+				//PlaySound(TEXT("sons\\Ultraje a Rigor - Marylou.wav"), NULL, SND_LOOP | SND_ASYNC);
 				break;
 
 			}
 			else if (itens[i].getFase() == 2 && itens[i].getTipo() == 2 && itens[i].getColide() == 1) {
-				contador++;
 				itemColetado = i;
 				itens[i].setTipo(6);
-				//itens.erase(itens.begin() + i);
 				itens[i].setColide(0);
-				//Timer3();
-
 				break;
 
 			}
 			else if (itens[i].getFase() == 3 && itens[i].getTipo() == 2 && itens[i].getColide() == 1) {
-				contador++;
 				itemColetado = i;
 				itens[i].setTipo(6);
-				//itens.erase(itens.begin() + i);
 				itens[i].setColide(0);
-				//Timer3();
-
 				break;
 
 
 			}
 			else if (itens[i].getFase() == 4 && itens[i].getTipo() == 2 && itens[i].getColide() == 1) {
-				contador++;
 				itemColetado = i;
 				itens[i].setTipo(6);
-				//itens.erase(itens.begin() + i);
 				itens[i].setColide(0);
-				//Timer3();
-
 				break;
 
 			}
 			else if (itens[i].getFase() == 5 && itens[i].getTipo() == 2 && itens[i].getColide() == 1) {
-				contador++;
 				itemColetado = i;
 				itens[i].setTipo(6);
-				//itens.erase(itens.begin() + i);
 				itens[i].setColide(0);
-				//Timer3();
-
 				break;
-
 			}
-
-
-
-
-
-
-			//cout<< "COLIDE "<< itens[i].getColide()<< "contador" << contador;
 
 		}
 
-		//cout << "contador" << contador;
 
-		/*if (p1.getLife()<5 && itens[itemColetado].getTipo() ==6 ) {
-		itens.erase(itens.begin() + itemColetado);
-		cout << "Contador";
-		itens[itemColetado].setColide(0);
-		p1.setLife(p1.getLife() + 1);
-
-		}*/
 	}
 
-
-
 	p1.vidaMax();
-	if (desenhaRelogio) {
+	if (reducaoVelocidade) {
 		tempoColisao = tempoColisaoItem + 2000;
 		if (tempo <= tempoColisao) {
 
 		}
 		else {
-			desenhaRelogio = false;
+			reducaoVelocidade = false;
 		}
 	}
 
 
+}
 
-
+void controlarVidas() {
 	if (p1.getLife() == 0)
 	{
 		gameState = GameStates::GAMEOVER;
@@ -3206,6 +3100,62 @@ void DesenhaFase1(void)
 
 	}
 
+}
+// Função que desenha um FASE1
+
+void desenhaFase(void)
+{
+	gameState = GameStates::PLAYING;
+
+	glBegin(GL_QUADS);
+	glColor3f(1.0f, 0.5f, 0.0f);
+	glVertex2i(237, 324);
+	glVertex2i(263, 324);
+
+	glVertex2i(263, 314);
+	glVertex2i(237, 314);
+	glEnd();
+
+	glColor3f(1.0f, 0.0f, 0.0f);
+	glVertex2i(250, 250);
+	glVertex2i(300, 250);
+	glVertex2i(250, 300);
+	glVertex2i(300, 300);
+	glEnd();
+
+
+	glClear(GL_COLOR_BUFFER_BIT);
+	desenharCenario();
+	GLint viewport[4]; //var to hold the viewport info
+	GLdouble modelview[16]; //var to hold the modelview info
+	GLdouble projection[16]; //var to hold the projection matrix info
+	GLfloat winX, winY, winZ; //variables to hold screen x,y,z coordinates
+	GLdouble worldX, worldY, worldZ; //variables to hold world x,y,z coordinates
+
+	glGetDoublev(GL_MODELVIEW_MATRIX, modelview); //get the modelview info
+	glGetDoublev(GL_PROJECTION_MATRIX, projection); //get the projection matrix info
+	glGetIntegerv(GL_VIEWPORT, viewport); //get the viewport info
+
+	winX = (float)p1.getX();
+	winY = (float)viewport[3] - (float)p1.getY();
+	winZ = 0;
+
+	//get the world coordinates from the screen coordinates
+	gluUnProject(winX, winY, winZ, modelview, projection, viewport, &worldX, &worldY, &worldZ);
+
+
+	glClear(GL_COLOR_BUFFER_BIT);
+
+	glColor3f(0.0f, 0.0f, 0.0f);
+
+
+	desenharCenario();
+	movimentarCaminhao();
+	movimentarMadeiras();
+	verificaColisaoItem();
+	controlarVidas();
+
+	
 
 
 
@@ -3228,13 +3178,59 @@ void DesenhaFase1(void)
 
 
 // Função que desenha um triângulo
-void DesenhaTriangulo(void)
+void desenhaCreditos(void)
 {
-	glBegin(GL_TRIANGLES);
-	glVertex2f(250.0f, 200.0f);
-	glVertex2f(200.0f, 300.0f);
-	glVertex2f(300.0f, 300.0f);
+
+	glColor3f(1.0f, 1.0f, 1.0f);
+
+	glBegin(GL_QUADS);
+	glColor3f(1.0f, 1.0f, 1.0f);
+	glVertex2f(100.0f, 80.0f);
+	glVertex2f(100.0f, 20.0f);
+	glVertex2f(400.0f, 20.0f);
+	glVertex2f(400.0f, 80.0f);
 	glEnd();
+
+
+	glBegin(GL_QUADS);
+	glColor3f(1.0f, 1.0f, 1.0f);
+	glVertex2f(100.0f, 160.0f);
+	glVertex2f(100.0f, 100.0f);
+	glVertex2f(400.0f, 100.0f);
+	glVertex2f(400.0f, 160.0f);
+	glEnd();
+
+
+	glColor3f(0.0f, 0.0f, 0.0f);
+
+	sprintf(texto, "VOLTAR");
+	DesenhaTexto(texto, GLUT_BITMAP_TIMES_ROMAN_24, 180, 120);
+	sprintf(texto, "SAIR");
+	DesenhaTexto(texto, GLUT_BITMAP_TIMES_ROMAN_24, 180, 40);
+
+
+	glColor3f(1.0f, 1.0f, 1.0f);
+
+	sprintf(texto, "Augusto Castro");
+	DesenhaTexto(texto, GLUT_BITMAP_TIMES_ROMAN_24, 50, 470);
+	sprintf(texto, "Débora cristina");
+	DesenhaTexto(texto, GLUT_BITMAP_TIMES_ROMAN_24, 50, 435);
+	sprintf(texto, "Rafael Cesario");
+	DesenhaTexto(texto, GLUT_BITMAP_TIMES_ROMAN_24, 50, 400);
+	sprintf(texto, "Rainara Araujo");
+	DesenhaTexto(texto, GLUT_BITMAP_TIMES_ROMAN_24, 50, 365);
+	sprintf(texto, "Matheus Assuncao");
+	DesenhaTexto(texto, GLUT_BITMAP_TIMES_ROMAN_24, 50, 330);
+	sprintf(texto, "Walace Andrade");
+	DesenhaTexto(texto, GLUT_BITMAP_TIMES_ROMAN_24, 50, 300);
+
+
+
+
+
+
+
+
 }
 
 // Função que desenha um Opcoes
@@ -3315,10 +3311,7 @@ void DesenhaOpcoes(void)
 	glVertex2f(165.0f, 355.0f);
 
 	glEnd();
-
-
-
-
+	
 
 	glColor3f(0.0f, 0.0f, 0.0f);
 	sprintf(texto, "a/<-");
@@ -3402,19 +3395,19 @@ void Desenha(void)
 		break;
 	case GALINHA:  DesenhaGalinha();
 		break;
-	case FASE1:  DesenhaFase1();
+	case FASE1:  desenhaFase();
 		break;
-	case FASE2:  DesenhaFase1();
+	case FASE2:  desenhaFase();
 		break;
-	case FASE3:  DesenhaFase1();
+	case FASE3:  desenhaFase();
 		break;
-	case FASE4:  DesenhaFase1();
+	case FASE4:  desenhaFase();
 		break;
-	case FASE5:  DesenhaFase1();
+	case FASE5:  desenhaFase();
 		break;
 	case VITORIA:	DesenhaVitoria();
 		break;
-	case TRIANGULO: DesenhaTriangulo();
+	case CREDITOS: desenhaCreditos();
 		break;
 	case Opcoes:   DesenhaOpcoes();
 		break;
@@ -3507,16 +3500,6 @@ void MoveMouseBotaoPressionado(int x, int y)
 	}
 
 
-
-
-
-
-	//sprintf(texto, "Botao pressionado (%d,%d)", x, y);
-
-
-	//sprintf(texto, "Botao pressionado (%d,%d)", x, y);
-
-
 	glutPostRedisplay();
 }
 
@@ -3594,7 +3577,7 @@ void MenuPrimitiva(int op)
 		primitiva = FASE1;
 		break;
 	case 1:
-		primitiva = TRIANGULO;
+		primitiva = CREDITOS;
 		break;
 	case 2:
 		primitiva = Opcoes;
@@ -3724,7 +3707,8 @@ void GerenciaMouse(int button, int state, int x, int y)
 					if (worldY > 420 && worldY < 480)
 					{
 						primitiva = FASE1;
-						//DesenhaFase1();
+
+						//desenhaFase();
 					}
 					if (worldY > 320 && worldY < 380)
 					{
@@ -3735,7 +3719,7 @@ void GerenciaMouse(int button, int state, int x, int y)
 					}
 					if (worldY > 220 && worldY < 280)
 					{
-						primitiva = TRIANGULO;
+						primitiva = CREDITOS;
 					}
 					if (worldY > 120 && worldY < 180)
 					{
@@ -3748,7 +3732,7 @@ void GerenciaMouse(int button, int state, int x, int y)
 	}
 
 
-	if (primitiva == Opcoes)
+	if (primitiva == Opcoes || primitiva == CREDITOS)
 	{
 		if (button == GLUT_LEFT_BUTTON)
 		{
@@ -3762,7 +3746,7 @@ void GerenciaMouse(int button, int state, int x, int y)
 					if (worldY > 20 && worldY < 80)
 					{
 						primitiva = SAIR;
-						//DesenhaFase1();
+						//desenhaFase();
 					}
 					if (worldY > 120 && worldY < 180)
 					{
