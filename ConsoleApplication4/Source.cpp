@@ -14,9 +14,6 @@
 using namespace std;
 
 GLint FPS = 0;
-//const int TIMERMSECS = 20;
-//float animation_time = 0;
-//const float  animation_step = .5;
 
 Personagem p1;
 
@@ -24,10 +21,6 @@ Personagem p1;
 GLint ClickON = 0;
 GLint break1 = 0;
 GLfloat timer2 = 3.3;
-//GLfloat xiStep = 1;
-//GLfloat yiStep = 1;
-
-// Tamanho e posição inicial do FASE1
 GLfloat x2 = 250.0f;
 GLfloat y2 = 0.0f;
 GLfloat x3 = 0.0f;
@@ -104,25 +97,17 @@ char texto[30];
 GLfloat win, r, g, b;
 GLint view_w, view_h, primitiva;
 
+vector<Caminhao> caminhoes;
+vector<Madeira> madeiras;
+vector<Item> itens;
+
 
 void Desenha(void);
 void DesenhaTexto(char *string, void *font, GLfloat xAux, GLfloat yAux);
 void MoveMouse(int x, int y);
 void MoveMouseBotaoPressionado(int x, int y);
 void Timer(int value);
-
-/*void InicializaFase1(void);
-void InicializaFase2(void);
-void InicializaFase3(void);
-void InicializaFase4(void);
-void InicializaFase5(void);
-*/
-
-vector<Caminhao> caminhoes;
-vector<Madeira> madeiras;
-vector<Item> itens;
-
-
+void lerArquivoItem(char* nomeArquivo);
 
 
 void GerenciaTeclado(unsigned char key, int x, int y)
@@ -132,8 +117,14 @@ void GerenciaTeclado(unsigned char key, int x, int y)
 	switch (c) {
 
 	case 13:
-		primitiva = MENU;
+		primitiva = FASE1;
 		break1 = 1;
+		break;
+	case 8:
+		if (primitiva == Opcoes)
+		{
+			primitiva = MENU;
+		}
 		break;
 	case 114:
 		primitiva = MENU;
@@ -196,6 +187,8 @@ void GerenciaTeclado(unsigned char key, int x, int y)
 
 void DesenhaGalinha() {
 
+
+	lerArquivoItem(nomeFase);
 
 	p1.setLife(5);
 
@@ -298,11 +291,7 @@ void DesenhaGalinha() {
 	glVertex2i(310, 360);
 
 
-
-
 	glEnd();
-
-
 
 
 
@@ -424,6 +413,7 @@ void DesenhaVitoria() {
 
 
 	sprintf(texto, "TO VIVA!!");
+	lerArquivoItem(nomeFase);
 	DesenhaTexto(texto, GLUT_BITMAP_TIMES_ROMAN_24, 280, 380);
 	// Executa os comandos OpenGL
 	glutSwapBuffers();
@@ -442,23 +432,6 @@ void InicializaPersonagem()
 
 void Timer(int value)
 {
-	/*	GLint viewport[4]; //var to hold the viewport info
-	GLdouble modelview[16]; //var to hold the modelview info
-	GLdouble projection[16]; //var to hold the projection matrix info
-	GLfloat winX, winY, winZ; //variables to hold screen x,y,z coordinates
-	GLdouble worldX, worldY, worldZ; //variables to hold world x,y,z coordinates
-
-	glGetDoublev(GL_MODELVIEW_MATRIX, modelview); //get the modelview info
-	glGetDoublev(GL_PROJECTION_MATRIX, projection); //get the projection matrix info
-	glGetIntegerv(GL_VIEWPORT, viewport); //get the viewport info
-
-	winX = (float)p1.getX();
-	winY = (float)viewport[3] - (float)p1.getY();
-	winZ = 0;
-
-	//get the world coordinates from the screen coordinates
-	gluUnProject(winX, winY, winZ, modelview, projection, viewport, &worldX, &worldY, &worldZ);
-	*/
 
 	if (desenhaRelogio) {
 		for (int i = 0; i < caminhoes.size(); i++) {
@@ -1130,44 +1103,6 @@ void Timer(int value)
 
 
 
-void Timer3()
-{
-	/*	GLint viewport[4]; //var to hold the viewport info
-	GLdouble modelview[16]; //var to hold the modelview info
-	GLdouble projection[16]; //var to hold the projection matrix info
-	GLfloat winX, winY, winZ; //variables to hold screen x,y,z coordinates
-	GLdouble worldX, worldY, worldZ; //variables to hold world x,y,z coordinates
-
-	glGetDoublev(GL_MODELVIEW_MATRIX, modelview); //get the modelview info
-	glGetDoublev(GL_PROJECTION_MATRIX, projection); //get the projection matrix info
-	glGetIntegerv(GL_VIEWPORT, viewport); //get the viewport info
-
-	winX = (float)p1.getX();
-	winY = (float)viewport[3] - (float)p1.getY();
-	winZ = 0;
-
-	//get the world coordinates from the screen coordinates
-	gluUnProject(winX, winY, winZ, modelview, projection, viewport, &worldX, &worldY, &worldZ);
-	*/
-
-	for (int i = 0; i < caminhoes.size(); i++) {
-		caminhoes[i].setX(caminhoes[i].getX() - (caminhoes[i].getVelocidade() / 2));
-	}
-	for (int i = 0; i < madeiras.size(); i++) {
-		madeiras[i].setX(
-			madeiras[i].getX() - (madeiras[i].getVelocidade() / 2));
-	}
-
-
-	if (p1.getX() > 470) p1.setX(470);
-	if (p1.getX() < 0) p1.setX(0);
-	// Redesenha o fase1 com as novas coordenadas 
-	//glutPostRedisplay();
-	//glutTimerFunc(1, Timer, 1);
-	
-}
-
-
 void DesenhaAnimacao() {
 
 
@@ -1585,53 +1520,6 @@ void DesenhaAnimacao() {
 		glEnd();
 
 
-
-
-
-		/*
-		glLineWidth(5.0f);
-		glBegin(GL_LINES);
-
-
-		glColor3f(1.0f, 0.5f, 0.0f);
-		glVertex2i(175, 330);
-		glVertex2i(155, 320);
-		glVertex2i(155, 320);
-		glVertex2i(175, 310);
-
-		glColor3f(0.0f, 0.0f, 0.0f);
-		glVertex2i(197,200);
-		glVertex2i(302,200);
-		glVertex2i(300,200);
-		glVertex2i(300,300);
-		glVertex2i(302, 300);
-		glVertex2i(197,300);
-		glVertex2i(200, 300);
-		glVertex2i(200, 200);
-
-
-		glVertex2i(223, 300);
-		glVertex2i(176, 300);
-		glVertex2i(223, 350);
-		glVertex2i(176, 350);
-		glVertex2i(175, 300);
-		glVertex2i(175, 350);
-		glVertex2i(225, 300);
-		glVertex2i(225, 350);
-
-		glVertex2i(185, 340);
-		glVertex2i(185, 330);
-
-
-		glColor3f(1.0f, 0.5f, 0.0f);
-		glVertex2i(260, 200);
-		glVertex2i(260, 170);
-
-		glVertex2i(260, 172);
-		glVertex2i(245, 172);
-
-		glEnd();*/
-
 		sprintf(texto, "TO MORTA");
 		DesenhaTexto(texto, GLUT_BITMAP_TIMES_ROMAN_24, 280, 380);
 		// Executa os comandos OpenGL
@@ -1650,17 +1538,7 @@ void DesenhaAnimacao() {
 
 void DesenhaMenu(void)
 {
-	//DesenhaTexto("TEXTO TESTE");
-
-	/*escreve(80 , 40 , -110, -50, GLUT_BITMAP_TIMES_ROMAN_24, "Spider Killer");
-	escreve(80 , 40 ,-40, -50, GLUT_BITMAP_TIMES_ROMAN_24, "Sair - ESC");
-	escreve(80, 40, 30, -50,  GLUT_BITMAP_TIMES_ROMAN_24, "Iniciar - ENTER");
-	escreve(80, 40, 100, -50, GLUT_BITMAP_TIMES_ROMAN_24, "Opcoes - O");*/
-
-
-
-
-
+	
 	glBegin(GL_QUADS);
 	glColor3f(1.0f, 1.0f, 1.0f);
 	glVertex2f(100.0f, 380.0f);
@@ -1789,16 +1667,6 @@ void DesenhaMenuPress1(void)
 
 void DesenhaMenuPress2(void)
 {
-	//DesenhaTexto("TEXTO TESTE");
-
-	/*escreve(80 , 40 , -110, -50, GLUT_BITMAP_TIMES_ROMAN_24, "Spider Killer");
-	escreve(80 , 40 ,-40, -50, GLUT_BITMAP_TIMES_ROMAN_24, "Sair - ESC");
-	escreve(80, 40, 30, -50,  GLUT_BITMAP_TIMES_ROMAN_24, "Iniciar - ENTER");
-	escreve(80, 40, 100, -50, GLUT_BITMAP_TIMES_ROMAN_24, "Opcoes - O");*/
-
-
-
-
 
 	glBegin(GL_QUADS);
 	glColor3f(1.0f, 1.0f, 1.0f);
@@ -1877,17 +1745,6 @@ void DesenhaMenuPress2(void)
 
 void DesenhaMenuPress3(void)
 {
-	//DesenhaTexto("TEXTO TESTE");
-
-	/*escreve(80 , 40 , -110, -50, GLUT_BITMAP_TIMES_ROMAN_24, "Spider Killer");
-	escreve(80 , 40 ,-40, -50, GLUT_BITMAP_TIMES_ROMAN_24, "Sair - ESC");
-	escreve(80, 40, 30, -50,  GLUT_BITMAP_TIMES_ROMAN_24, "Iniciar - ENTER");
-	escreve(80, 40, 100, -50, GLUT_BITMAP_TIMES_ROMAN_24, "Opcoes - O");*/
-
-
-
-
-
 	glBegin(GL_QUADS);
 	glColor3f(1.0f, 1.0f, 1.0f);
 	glVertex2f(100.0f, 380.0f);
@@ -2730,10 +2587,10 @@ void DesenhaFase1(void)
 		glVertex2i(GLint(caminhoes[i].getX() + caminhoes[i].getWidth()), GLint(caminhoes[i].getY() + caminhoes[i].getHeight()));
 		glEnd();
 
-		if (caminhoes[i].getX() > 500 && caminhoes[i].getVelocidade()>0) {
+		if (caminhoes[i].getX() > 500 && caminhoes[i].getVelocidade() > 0) {
 			caminhoes[i].setX(-1650);
 		}
-		else if (caminhoes[i].getX() < -1650 && caminhoes[i].getVelocidade()<0) {
+		else if (caminhoes[i].getX() < -1650 && caminhoes[i].getVelocidade() < 0) {
 			caminhoes[i].setX(500);
 		}
 	}
@@ -2765,11 +2622,11 @@ void DesenhaFase1(void)
 		glEnd();
 
 
-		if (madeiras[i].getX() > 500 && madeiras[i].getVelocidade()>0)
+		if (madeiras[i].getX() > 500 && madeiras[i].getVelocidade() > 0)
 		{
 			madeiras[i].setX(-1650);
 		}
-		else if (madeiras[i].getX() < -1650 && madeiras[i].getVelocidade()<0) {
+		else if (madeiras[i].getX() < -1650 && madeiras[i].getVelocidade() < 0) {
 			madeiras[i].setX(500);
 		}
 	}
@@ -2851,18 +2708,6 @@ void DesenhaFase1(void)
 
 		tempo = tempo + 1;
 
-
-
-
-
-
-
-
-
-
-
-
-
 		/*if(p1.getX()<30)
 		{
 		Timer3();
@@ -2927,7 +2772,7 @@ void DesenhaFase1(void)
 
 			}
 
-		
+
 
 			if (itens[i].getFase() == 1 && itens[i].getTipo() == 2 && itens[i].getColide() == 1) {
 				contador++;
@@ -2941,7 +2786,7 @@ void DesenhaFase1(void)
 				tempoColisaoItem = tempo;
 
 				//if (tempo=tempoColisaoItem+5)
-				
+
 
 
 				break;
@@ -3016,13 +2861,13 @@ void DesenhaFase1(void)
 
 
 	p1.vidaMax();
-	if (desenhaRelogio){
+	if (desenhaRelogio) {
 		tempoColisao = tempoColisaoItem + 2000;
 		if (tempo <= tempoColisao) {
-			
+
 		}
 		else {
-				desenhaRelogio = false;
+			desenhaRelogio = false;
 		}
 	}
 
@@ -3031,6 +2876,7 @@ void DesenhaFase1(void)
 
 	if (p1.getLife() == 0)
 	{
+		itemColetadoFase = false;
 		primitiva = GALINHA;
 	}
 
@@ -3913,13 +3759,6 @@ void GerenciaMouse(int button, int state, int x, int y)
 		}
 
 	}
-
-
-
-
-
-
-
 
 
 	if (button == GLUT_RIGHT_BUTTON)

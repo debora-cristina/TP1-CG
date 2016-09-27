@@ -8,222 +8,220 @@ c:\users\debor\documents\consoleapplication4\consoleapplication4\item.h(53): war
 c:\users\debor\documents\consoleapplication4\consoleapplication4\item.h(58): warning C4244: 'return': conversion from 'int' to 'float', possible loss of data
 c:\users\debor\documents\consoleapplication4\consoleapplication4\item.h(61): warning C4244: 'return': conversion from 'int' to 'float', possible loss of data
 c:\users\debor\documents\consoleapplication4\consoleapplication4\item.h(72): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(26): warning C4305: 'initializing': truncation from 'double' to 'GLfloat'
-c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(314): warning C4244: 'argument': conversion from 'GLfloat' to 'DWORD', possible loss of data
-c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(309): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(23): warning C4305: 'initializing': truncation from 'double' to 'GLfloat'
+c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(303): warning C4244: 'argument': conversion from 'GLfloat' to 'DWORD', possible loss of data
+c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(298): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
   c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(1769): note: see declaration of 'sprintf'
-c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(431): warning C4244: 'argument': conversion from 'GLfloat' to 'DWORD', possible loss of data
-c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(426): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(421): warning C4244: 'argument': conversion from 'GLfloat' to 'DWORD', possible loss of data
+c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(415): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
   c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(1769): note: see declaration of 'sprintf'
-c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(464): warning C4018: '<': signed/unsigned mismatch
-c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(468): warning C4018: '<': signed/unsigned mismatch
-c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(473): warning C4018: '<': signed/unsigned mismatch
-c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(477): warning C4018: '<': signed/unsigned mismatch
-c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(485): warning C4018: '<': signed/unsigned mismatch
-c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(494): warning C4305: '=': truncation from 'double' to 'GLfloat'
-c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(499): warning C4305: '=': truncation from 'double' to 'GLfloat'
-c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(504): warning C4305: '=': truncation from 'double' to 'GLfloat'
-c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(510): warning C4305: '=': truncation from 'double' to 'GLfloat'
-c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(523): warning C4305: '=': truncation from 'double' to 'GLfloat'
-c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(528): warning C4305: '=': truncation from 'double' to 'GLfloat'
-c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(533): warning C4305: '=': truncation from 'double' to 'GLfloat'
-c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(539): warning C4305: '=': truncation from 'double' to 'GLfloat'
-c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(551): warning C4305: '=': truncation from 'double' to 'GLfloat'
-c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(556): warning C4305: '=': truncation from 'double' to 'GLfloat'
-c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(561): warning C4305: '=': truncation from 'double' to 'GLfloat'
-c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(567): warning C4305: '=': truncation from 'double' to 'GLfloat'
-c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(589): warning C4305: '=': truncation from 'double' to 'GLfloat'
-c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(595): warning C4305: '=': truncation from 'double' to 'GLfloat'
-c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(607): warning C4305: '=': truncation from 'double' to 'GLfloat'
-c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(612): warning C4305: '=': truncation from 'double' to 'GLfloat'
-c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(617): warning C4305: '=': truncation from 'double' to 'GLfloat'
-c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(623): warning C4305: '=': truncation from 'double' to 'GLfloat'
-c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(637): warning C4305: '=': truncation from 'double' to 'GLfloat'
-c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(642): warning C4305: '=': truncation from 'double' to 'GLfloat'
-c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(647): warning C4305: '=': truncation from 'double' to 'GLfloat'
-c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(653): warning C4305: '=': truncation from 'double' to 'GLfloat'
-c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(666): warning C4305: '=': truncation from 'double' to 'GLfloat'
-c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(671): warning C4305: '=': truncation from 'double' to 'GLfloat'
-c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(676): warning C4305: '=': truncation from 'double' to 'GLfloat'
-c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(682): warning C4305: '=': truncation from 'double' to 'GLfloat'
-c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(694): warning C4305: '=': truncation from 'double' to 'GLfloat'
-c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(699): warning C4305: '=': truncation from 'double' to 'GLfloat'
-c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(704): warning C4305: '=': truncation from 'double' to 'GLfloat'
-c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(710): warning C4305: '=': truncation from 'double' to 'GLfloat'
-c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(732): warning C4305: '=': truncation from 'double' to 'GLfloat'
-c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(738): warning C4305: '=': truncation from 'double' to 'GLfloat'
-c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(750): warning C4305: '=': truncation from 'double' to 'GLfloat'
+c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(437): warning C4018: '<': signed/unsigned mismatch
+c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(441): warning C4018: '<': signed/unsigned mismatch
+c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(446): warning C4018: '<': signed/unsigned mismatch
+c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(450): warning C4018: '<': signed/unsigned mismatch
+c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(458): warning C4018: '<': signed/unsigned mismatch
+c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(467): warning C4305: '=': truncation from 'double' to 'GLfloat'
+c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(472): warning C4305: '=': truncation from 'double' to 'GLfloat'
+c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(477): warning C4305: '=': truncation from 'double' to 'GLfloat'
+c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(483): warning C4305: '=': truncation from 'double' to 'GLfloat'
+c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(496): warning C4305: '=': truncation from 'double' to 'GLfloat'
+c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(501): warning C4305: '=': truncation from 'double' to 'GLfloat'
+c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(506): warning C4305: '=': truncation from 'double' to 'GLfloat'
+c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(512): warning C4305: '=': truncation from 'double' to 'GLfloat'
+c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(524): warning C4305: '=': truncation from 'double' to 'GLfloat'
+c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(529): warning C4305: '=': truncation from 'double' to 'GLfloat'
+c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(534): warning C4305: '=': truncation from 'double' to 'GLfloat'
+c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(540): warning C4305: '=': truncation from 'double' to 'GLfloat'
+c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(562): warning C4305: '=': truncation from 'double' to 'GLfloat'
+c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(568): warning C4305: '=': truncation from 'double' to 'GLfloat'
+c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(580): warning C4305: '=': truncation from 'double' to 'GLfloat'
+c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(585): warning C4305: '=': truncation from 'double' to 'GLfloat'
+c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(590): warning C4305: '=': truncation from 'double' to 'GLfloat'
+c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(596): warning C4305: '=': truncation from 'double' to 'GLfloat'
+c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(610): warning C4305: '=': truncation from 'double' to 'GLfloat'
+c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(615): warning C4305: '=': truncation from 'double' to 'GLfloat'
+c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(620): warning C4305: '=': truncation from 'double' to 'GLfloat'
+c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(626): warning C4305: '=': truncation from 'double' to 'GLfloat'
+c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(639): warning C4305: '=': truncation from 'double' to 'GLfloat'
+c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(644): warning C4305: '=': truncation from 'double' to 'GLfloat'
+c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(649): warning C4305: '=': truncation from 'double' to 'GLfloat'
+c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(655): warning C4305: '=': truncation from 'double' to 'GLfloat'
+c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(667): warning C4305: '=': truncation from 'double' to 'GLfloat'
+c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(672): warning C4305: '=': truncation from 'double' to 'GLfloat'
+c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(677): warning C4305: '=': truncation from 'double' to 'GLfloat'
+c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(683): warning C4305: '=': truncation from 'double' to 'GLfloat'
+c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(705): warning C4305: '=': truncation from 'double' to 'GLfloat'
+c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(711): warning C4305: '=': truncation from 'double' to 'GLfloat'
+c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(723): warning C4305: '=': truncation from 'double' to 'GLfloat'
+c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(728): warning C4305: '=': truncation from 'double' to 'GLfloat'
+c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(733): warning C4305: '=': truncation from 'double' to 'GLfloat'
+c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(739): warning C4305: '=': truncation from 'double' to 'GLfloat'
 c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(755): warning C4305: '=': truncation from 'double' to 'GLfloat'
 c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(760): warning C4305: '=': truncation from 'double' to 'GLfloat'
-c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(766): warning C4305: '=': truncation from 'double' to 'GLfloat'
-c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(782): warning C4305: '=': truncation from 'double' to 'GLfloat'
-c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(787): warning C4305: '=': truncation from 'double' to 'GLfloat'
-c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(792): warning C4305: '=': truncation from 'double' to 'GLfloat'
-c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(798): warning C4305: '=': truncation from 'double' to 'GLfloat'
-c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(816): warning C4305: '=': truncation from 'double' to 'GLfloat'
-c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(821): warning C4305: '=': truncation from 'double' to 'GLfloat'
-c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(839): warning C4305: '=': truncation from 'double' to 'GLfloat'
-c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(844): warning C4305: '=': truncation from 'double' to 'GLfloat'
-c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(849): warning C4305: '=': truncation from 'double' to 'GLfloat'
-c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(855): warning C4305: '=': truncation from 'double' to 'GLfloat'
-c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(867): warning C4305: '=': truncation from 'double' to 'GLfloat'
-c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(877): warning C4305: '=': truncation from 'double' to 'GLfloat'
-c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(883): warning C4305: '=': truncation from 'double' to 'GLfloat'
-c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(895): warning C4305: '=': truncation from 'double' to 'GLfloat'
-c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(900): warning C4305: '=': truncation from 'double' to 'GLfloat'
-c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(905): warning C4305: '=': truncation from 'double' to 'GLfloat'
-c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(911): warning C4305: '=': truncation from 'double' to 'GLfloat'
-c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(943): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(950): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(959): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(967): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(980): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(987): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(996): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(1004): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(1017): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(1024): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(1033): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(1041): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(1054): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(1061): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(1070): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(1078): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(1091): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(1098): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(1107): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(1115): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(1127): warning C4244: 'argument': conversion from 'double' to 'unsigned int', possible loss of data
-c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(1153): warning C4018: '<': signed/unsigned mismatch
-c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(1156): warning C4018: '<': signed/unsigned mismatch
-c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(1456): warning C4244: 'argument': conversion from 'GLfloat' to 'DWORD', possible loss of data
-c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(1479): warning C4244: 'argument': conversion from 'GLfloat' to 'DWORD', possible loss of data
-c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(1639): warning C4244: 'argument': conversion from 'GLfloat' to 'DWORD', possible loss of data
-c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(1635): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(765): warning C4305: '=': truncation from 'double' to 'GLfloat'
+c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(771): warning C4305: '=': truncation from 'double' to 'GLfloat'
+c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(789): warning C4305: '=': truncation from 'double' to 'GLfloat'
+c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(794): warning C4305: '=': truncation from 'double' to 'GLfloat'
+c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(812): warning C4305: '=': truncation from 'double' to 'GLfloat'
+c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(817): warning C4305: '=': truncation from 'double' to 'GLfloat'
+c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(822): warning C4305: '=': truncation from 'double' to 'GLfloat'
+c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(828): warning C4305: '=': truncation from 'double' to 'GLfloat'
+c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(840): warning C4305: '=': truncation from 'double' to 'GLfloat'
+c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(850): warning C4305: '=': truncation from 'double' to 'GLfloat'
+c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(856): warning C4305: '=': truncation from 'double' to 'GLfloat'
+c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(868): warning C4305: '=': truncation from 'double' to 'GLfloat'
+c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(873): warning C4305: '=': truncation from 'double' to 'GLfloat'
+c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(878): warning C4305: '=': truncation from 'double' to 'GLfloat'
+c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(884): warning C4305: '=': truncation from 'double' to 'GLfloat'
+c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(916): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(923): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(932): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(940): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(953): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(960): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(969): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(977): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(990): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(997): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(1006): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(1014): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(1027): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(1034): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(1043): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(1051): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(1064): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(1071): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(1080): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(1088): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(1100): warning C4244: 'argument': conversion from 'double' to 'unsigned int', possible loss of data
+c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(1391): warning C4244: 'argument': conversion from 'GLfloat' to 'DWORD', possible loss of data
+c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(1414): warning C4244: 'argument': conversion from 'GLfloat' to 'DWORD', possible loss of data
+c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(1527): warning C4244: 'argument': conversion from 'GLfloat' to 'DWORD', possible loss of data
+c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(1523): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
   c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(1769): note: see declaration of 'sprintf'
-c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(1698): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(1576): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
   c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(1769): note: see declaration of 'sprintf'
-c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(1700): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(1578): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
   c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(1769): note: see declaration of 'sprintf'
-c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(1702): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(1580): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
   c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(1769): note: see declaration of 'sprintf'
-c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(1704): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(1582): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
   c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(1769): note: see declaration of 'sprintf'
-c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(1748): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(1626): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
   c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(1769): note: see declaration of 'sprintf'
-c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(1750): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(1628): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
   c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(1769): note: see declaration of 'sprintf'
-c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(1752): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(1630): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
   c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(1769): note: see declaration of 'sprintf'
-c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(1754): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(1632): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
   c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(1769): note: see declaration of 'sprintf'
-c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(1837): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(1705): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
   c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(1769): note: see declaration of 'sprintf'
-c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(1839): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(1707): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
   c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(1769): note: see declaration of 'sprintf'
-c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(1841): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(1709): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
   c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(1769): note: see declaration of 'sprintf'
-c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(1843): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(1711): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
   c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(1769): note: see declaration of 'sprintf'
-c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(1925): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(1782): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
   c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(1769): note: see declaration of 'sprintf'
-c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(1927): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(1784): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
   c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(1769): note: see declaration of 'sprintf'
-c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(1929): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(1786): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
   c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(1769): note: see declaration of 'sprintf'
-c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(1931): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(1788): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
   c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(1769): note: see declaration of 'sprintf'
-c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(2002): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(1859): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
   c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(1769): note: see declaration of 'sprintf'
-c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(2004): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(1861): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
   c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(1769): note: see declaration of 'sprintf'
-c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(2006): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(1863): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
   c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(1769): note: see declaration of 'sprintf'
-c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(2008): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(1865): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
   c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(1769): note: see declaration of 'sprintf'
-c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(2044): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(1901): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
   c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(205): note: see declaration of 'fopen'
-c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(2045): warning C4101: 'integers': unreferenced local variable
-c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(2074): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(1902): warning C4101: 'integers': unreferenced local variable
+c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(1931): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
   c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(205): note: see declaration of 'fopen'
-c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(2080): warning C4996: 'fscanf': This function or variable may be unsafe. Consider using fscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(1937): warning C4996: 'fscanf': This function or variable may be unsafe. Consider using fscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
   c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(1193): note: see declaration of 'fscanf'
-c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(2152): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(2132): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(2009): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(1989): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
   c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(205): note: see declaration of 'fopen'
-c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(2138): warning C4996: 'fscanf': This function or variable may be unsafe. Consider using fscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(1995): warning C4996: 'fscanf': This function or variable may be unsafe. Consider using fscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
   c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(1193): note: see declaration of 'fscanf'
-c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(2214): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(2071): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
   c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\string.h(119): note: see declaration of 'strcpy'
-c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(2242): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
-c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(2243): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
-c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(2244): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
-c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(2245): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
-c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(2246): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
-c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(2247): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
-c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(2248): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
-c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(2249): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
-c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(2250): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
-c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(2257): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
-c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(2258): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
-c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(2259): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
-c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(2260): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
-c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(2261): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
-c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(2262): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
-c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(2263): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
-c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(2264): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
-c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(2265): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
-c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(2272): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
-c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(2273): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
-c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(2278): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
-c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(2279): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
-c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(2286): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
-c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(2287): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
-c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(2288): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
-c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(2289): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
-c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(2293): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
-c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(2294): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
-c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(2295): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
-c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(2296): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
-c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(2724): warning C4018: '<': signed/unsigned mismatch
-c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(2741): warning C4018: '<': signed/unsigned mismatch
-c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(2749): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(2757): warning C4018: '<': signed/unsigned mismatch
-c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(2780): warning C4018: '<': signed/unsigned mismatch
-c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(2790): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(2798): warning C4018: '<': signed/unsigned mismatch
-c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(2871): warning C4018: '<': signed/unsigned mismatch
-c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(2880): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(2891): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(2902): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(2913): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(2924): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(3333): warning C4244: 'argument': conversion from 'GLfloat' to 'DWORD', possible loss of data
-c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(3327): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(2099): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
+c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(2100): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
+c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(2101): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
+c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(2102): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
+c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(2103): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
+c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(2104): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
+c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(2105): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
+c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(2106): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
+c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(2107): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
+c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(2114): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
+c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(2115): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
+c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(2116): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
+c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(2117): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
+c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(2118): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
+c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(2119): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
+c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(2120): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
+c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(2121): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
+c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(2122): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
+c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(2129): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
+c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(2130): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
+c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(2135): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
+c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(2136): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
+c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(2143): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
+c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(2144): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
+c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(2145): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
+c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(2146): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
+c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(2150): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
+c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(2151): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
+c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(2152): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
+c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(2153): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
+c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(2581): warning C4018: '<': signed/unsigned mismatch
+c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(2598): warning C4018: '<': signed/unsigned mismatch
+c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(2606): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(2614): warning C4018: '<': signed/unsigned mismatch
+c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(2637): warning C4018: '<': signed/unsigned mismatch
+c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(2647): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(2655): warning C4018: '<': signed/unsigned mismatch
+c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(2716): warning C4018: '<': signed/unsigned mismatch
+c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(2725): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(2736): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(2747): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(2758): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(2769): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(3179): warning C4244: 'argument': conversion from 'GLfloat' to 'DWORD', possible loss of data
+c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(3173): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
   c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(1769): note: see declaration of 'sprintf'
-c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(3457): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(3303): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
   c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(1769): note: see declaration of 'sprintf'
-c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(3459): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(3305): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
   c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(1769): note: see declaration of 'sprintf'
-c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(3461): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(3307): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
   c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(1769): note: see declaration of 'sprintf'
-c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(3463): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(3309): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
   c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(1769): note: see declaration of 'sprintf'
-c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(3467): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(3313): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
   c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(1769): note: see declaration of 'sprintf'
-c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(3469): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(3315): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
   c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(1769): note: see declaration of 'sprintf'
-c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(3475): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(3321): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
   c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(1769): note: see declaration of 'sprintf'
-c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(3477): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(3323): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
   c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(1769): note: see declaration of 'sprintf'
-c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(3479): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(3325): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
   c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(1769): note: see declaration of 'sprintf'
-c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(3483): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(3329): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
   c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(1769): note: see declaration of 'sprintf'
-c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(3485): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(3331): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
   c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(1769): note: see declaration of 'sprintf'
-c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(3813): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+c:\users\debor\documents\consoleapplication4\consoleapplication4\source.cpp(3659): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
   c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(1769): note: see declaration of 'sprintf'
   ConsoleApplication4.vcxproj -> C:\Users\debor\Documents\ConsoleApplication4\Debug\ConsoleApplication4.exe
   ConsoleApplication4.vcxproj -> C:\Users\debor\Documents\ConsoleApplication4\Debug\ConsoleApplication4.pdb (Full PDB)
