@@ -2089,7 +2089,7 @@ void DesenhaFase1(void)
 	if (p1.getY() > 255 && p1.getY() < 450)
 	{
 
-		/*for (int i = 0; i < madeiras.size(); i++) {
+		for (int i = 0; i < madeiras.size(); i++) {
 
 			madeiras[i].colideTeste(p1);
 
@@ -2100,7 +2100,7 @@ void DesenhaFase1(void)
 
 		if (cont == 0) {
 			p1.setX(250); p1.setY(10); 			p1.setLife(p1.getLife() - 1);
-		}*/
+		}
 
 
 	}
