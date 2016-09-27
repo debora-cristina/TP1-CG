@@ -91,10 +91,13 @@ char* estado;
 enum GameStates { OPTIONS, PLAYING, WIN, GAMEOVER, WINGAME };
 GameStates gameState = GameStates::OPTIONS;
 int fase = 1;
+int tempo = 0;
+int tempoColisaoItem = 0;
+int tempoColisao;
 char* nomeFase;
+bool desenhaRelogio = false;
 
 bool fullScreen = false;
-
 
 // Variáveis
 char texto[30];
@@ -457,12 +460,24 @@ void Timer(int value)
 	gluUnProject(winX, winY, winZ, modelview, projection, viewport, &worldX, &worldY, &worldZ);
 	*/
 
-	for (int i = 0; i < caminhoes.size(); i++) {
-		caminhoes[i].setX(caminhoes[i].getX() + caminhoes[i].getVelocidade());
-	}
+	if (desenhaRelogio) {
+		for (int i = 0; i < caminhoes.size(); i++) {
+			caminhoes[i].setX(caminhoes[i].getX() + (caminhoes[i].getVelocidade()/3));
+		}
 
-	for (int i = 0; i < madeiras.size(); i++) {
-		madeiras[i].setX(madeiras[i].getX() + madeiras[i].getVelocidade());
+		for (int i = 0; i < madeiras.size(); i++) {
+			madeiras[i].setX(madeiras[i].getX() + (madeiras[i].getVelocidade()/3));
+		}
+	}
+	else {
+		for (int i = 0; i < caminhoes.size(); i++) {
+			caminhoes[i].setX(caminhoes[i].getX() + caminhoes[i].getVelocidade());
+		}
+
+		for (int i = 0; i < madeiras.size(); i++) {
+			madeiras[i].setX(madeiras[i].getX() + madeiras[i].getVelocidade() );
+		}
+
 	}
 
 
@@ -613,6 +628,292 @@ void Timer(int value)
 		}
 
 
+		// Muda a direção quando chega na borda esquerda ou direita
+		if (itens[i].getFase() == 1 && itens[i].getTipo() == 1)
+		{
+
+			if (itens[i].getX() > 470)
+			{
+				xiStep = -0.7;
+			}
+
+			if (itens[i].getX() < 0)
+			{
+				xiStep = 0.7;
+			}
+			// Muda a direção quando chega na borda superior ou inferior
+			if (itens[i].getY() > 470)
+			{
+				yiStep = -0.7;
+			}
+
+			if (itens[i].getY() < 0)
+			{
+
+				yiStep = 0.7;
+			}
+
+			itens[i].setX(itens[i].getX() + xiStep);
+			itens[i].setY(itens[i].getY() + yiStep);
+		}
+
+
+		else if (itens[i].getFase() == 2 && itens[i].getTipo() == 1)
+		{
+
+			if (itens[i].getX() > 470)
+			{
+				xiStep = -0.4;
+			}
+
+			if (itens[i].getX() < 0)
+			{
+				xiStep = 0.4;
+			}
+			// Muda a direção quando chega na borda superior ou inferior
+			if (itens[i].getY() > 470)
+			{
+				yiStep = -1.2;
+			}
+
+			if (itens[i].getY() < 0)
+			{
+
+				yiStep = 1.2;
+			}
+
+			itens[i].setX(itens[i].getX() + xiStep);
+			itens[i].setY(itens[i].getY() + yiStep);
+		}
+
+		else if (itens[i].getFase() == 3 && itens[i].getTipo() == 1)
+		{
+
+			if (itens[i].getX() > 470)
+			{
+				xiStep = -0.7;
+			}
+
+			if (itens[i].getX() < 0)
+			{
+				xiStep = 0.9;
+			}
+			// Muda a direção quando chega na borda superior ou inferior
+			if (itens[i].getY() > 470)
+			{
+				yiStep = -1.2;
+			}
+
+			if (itens[i].getY() < 0)
+			{
+
+				yiStep = 1.7;
+			}
+
+			itens[i].setX(itens[i].getX() + xiStep);
+			itens[i].setY(itens[i].getY() + yiStep);
+		}
+
+		else if (itens[i].getFase() == 4 && itens[i].getTipo() == 1)
+		{
+
+			if (itens[i].getX() > 470)
+			{
+				xiStep = -0.5;
+			}
+
+			if (itens[i].getX() < 0)
+			{
+				xiStep = 0.5;
+			}
+			// Muda a direção quando chega na borda superior ou inferior
+			if (itens[i].getY() > 470)
+			{
+				yiStep = -0.9;
+			}
+
+			if (itens[i].getY() < 0)
+			{
+
+				yiStep = 0.9;
+			}
+
+			itens[i].setX(itens[i].getX() + xiStep);
+			itens[i].setY(itens[i].getY() + yiStep);
+		}
+
+		else if (itens[i].getFase() == 5 && itens[i].getTipo() == 1)
+		{
+
+			if (itens[i].getX() > 470)
+			{
+				xiStep = -1.7;
+			}
+
+			if (itens[i].getX() < 0)
+			{
+				xiStep = 1.7;
+			}
+			// Muda a direção quando chega na borda superior ou inferior
+			if (itens[i].getY() > 470)
+			{
+				yiStep = -1.3;
+			}
+
+			if (itens[i].getY() < 0)
+			{
+
+				yiStep = 1.3;
+			}
+
+			itens[i].setX(itens[i].getX() + xiStep);
+			itens[i].setY(itens[i].getY() + yiStep);
+		}
+
+
+
+
+		// Muda a direção quando chega na borda esquerda ou direita
+		if (itens[i].getFase() == 1 && itens[i].getTipo() == 2)
+		{
+
+			if (itens[i].getX() > 470)
+			{
+				xiStep = -0.3;
+			}
+
+			if (itens[i].getX() < 0)
+			{
+				xiStep = 0.4;
+			}
+			// Muda a direção quando chega na borda superior ou inferior
+			if (itens[i].getY() > 470)
+			{
+				yiStep = -0.6;
+			}
+
+			if (itens[i].getY() < 0)
+			{
+
+				yiStep = 0.9;
+			}
+
+			itens[i].setX(itens[i].getX() + xiStep);
+			itens[i].setY(itens[i].getY() + yiStep);
+		}
+
+
+		else if (itens[i].getFase() == 2 && itens[i].getTipo() == 2)
+		{
+
+			if (itens[i].getX() > 470)
+			{
+				xiStep = -0.5;
+			}
+
+			if (itens[i].getX() < 0)
+			{
+				xiStep = 0.8;
+			}
+			// Muda a direção quando chega na borda superior ou inferior
+			if (itens[i].getY() > 470)
+			{
+				yiStep = -1.1;
+			}
+
+			if (itens[i].getY() < 0)
+			{
+
+				yiStep = 1.0;
+			}
+
+			itens[i].setX(itens[i].getX() + xiStep);
+			itens[i].setY(itens[i].getY() + yiStep);
+		}
+
+		else if (itens[i].getFase() == 3 && itens[i].getTipo() == 2)
+		{
+
+			if (itens[i].getX() > 470)
+			{
+				xiStep = -0.4;
+			}
+
+			if (itens[i].getX() < 0)
+			{
+				xiStep = 0.9;
+			}
+			// Muda a direção quando chega na borda superior ou inferior
+			if (itens[i].getY() > 470)
+			{
+				yiStep = -0.6;
+			}
+
+			if (itens[i].getY() < 0)
+			{
+
+				yiStep = 1.7;
+			}
+
+			itens[i].setX(itens[i].getX() + xiStep);
+			itens[i].setY(itens[i].getY() + yiStep);
+		}
+
+		else if (itens[i].getFase() == 4 && itens[i].getTipo() == 2)
+		{
+
+			if (itens[i].getX() > 470)
+			{
+				xiStep = -0.3;
+			}
+
+			if (itens[i].getX() < 0)
+			{
+				xiStep = 1.5;
+			}
+			// Muda a direção quando chega na borda superior ou inferior
+			if (itens[i].getY() > 470)
+			{
+				yiStep = -0.9;
+			}
+
+			if (itens[i].getY() < 0)
+			{
+
+				yiStep = 1.9;
+			}
+
+			itens[i].setX(itens[i].getX() + xiStep);
+			itens[i].setY(itens[i].getY() + yiStep);
+		}
+
+		else if (itens[i].getFase() == 5 && itens[i].getTipo() == 2)
+		{
+
+			if (itens[i].getX() > 470)
+			{
+				xiStep = -1.7;
+			}
+
+			if (itens[i].getX() < 0)
+			{
+				xiStep = 1.3;
+			}
+			// Muda a direção quando chega na borda superior ou inferior
+			if (itens[i].getY() > 470)
+			{
+				yiStep = -1.9;
+			}
+
+			if (itens[i].getY() < 0)
+			{
+
+				yiStep = 2.3;
+			}
+
+			itens[i].setX(itens[i].getX() + xiStep);
+			itens[i].setY(itens[i].getY() + yiStep);
+		}
 
 
 	}
@@ -826,6 +1127,46 @@ void Timer(int value)
 	glutTimerFunc(3.3, Timer, 1);
 
 }
+
+
+
+void Timer3()
+{
+	/*	GLint viewport[4]; //var to hold the viewport info
+	GLdouble modelview[16]; //var to hold the modelview info
+	GLdouble projection[16]; //var to hold the projection matrix info
+	GLfloat winX, winY, winZ; //variables to hold screen x,y,z coordinates
+	GLdouble worldX, worldY, worldZ; //variables to hold world x,y,z coordinates
+
+	glGetDoublev(GL_MODELVIEW_MATRIX, modelview); //get the modelview info
+	glGetDoublev(GL_PROJECTION_MATRIX, projection); //get the projection matrix info
+	glGetIntegerv(GL_VIEWPORT, viewport); //get the viewport info
+
+	winX = (float)p1.getX();
+	winY = (float)viewport[3] - (float)p1.getY();
+	winZ = 0;
+
+	//get the world coordinates from the screen coordinates
+	gluUnProject(winX, winY, winZ, modelview, projection, viewport, &worldX, &worldY, &worldZ);
+	*/
+
+	for (int i = 0; i < caminhoes.size(); i++) {
+		caminhoes[i].setX(caminhoes[i].getX() - (caminhoes[i].getVelocidade() / 2));
+	}
+	for (int i = 0; i < madeiras.size(); i++) {
+		madeiras[i].setX(
+			madeiras[i].getX() - (madeiras[i].getVelocidade() / 2));
+	}
+
+
+	if (p1.getX() > 470) p1.setX(470);
+	if (p1.getX() < 0) p1.setX(0);
+	// Redesenha o fase1 com as novas coordenadas 
+	//glutPostRedisplay();
+	//glutTimerFunc(1, Timer, 1);
+	
+}
+
 
 void DesenhaAnimacao() {
 
@@ -1859,6 +2200,8 @@ void Inicializa(void)
 	InicializaFase();
 
 
+
+
 	// Define a cor de fundo da janela de visualização como preta
 	glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
 	win = 150.0f;
@@ -1893,6 +2236,51 @@ void AlteraTamanhoJanela(GLsizei w, GLsizei h)
 }
 
 
+void desenhaItem2(float x, float y) {
+	glBegin(GL_POLYGON);
+	glColor3f(0.2f, 0.2f, 0.2f);
+	glVertex2i(x, y + 20);
+	glVertex2i(x, y + 10);
+	glVertex2i(x + 10, y);
+	glVertex2i(x + 20, y);
+	glVertex2i(x + 30, y + 10);
+	glVertex2i(x + 30, y + 20);
+	glVertex2i(x + 20, y + 30);
+	glVertex2i(x + 10, y + 30);
+	glVertex2i(x, y + 20);
+	glEnd();
+
+
+	glBegin(GL_POLYGON);
+	glColor3f(1.0f, 0.9f, 0.9f);
+
+	glVertex2i(x + 3, y + 20);
+	glVertex2i(x + 3, y + 10);
+	glVertex2i(x + 10, y + 3);
+	glVertex2i(x + 20, y + 3);
+	glVertex2i(x + 27, y + 10);
+	glVertex2i(x + 27, y + 20);
+	glVertex2i(x + 20, y + 27);
+	glVertex2i(x + 10, y + 27);
+	glVertex2i(x + 3, y + 20);
+	glEnd();
+
+
+	glLineWidth(2);
+	glBegin(GL_LINES);
+	glColor3f(0.2f, 0.2f, 0.2f);
+	glVertex2i(x + 13, y + 13);
+	glVertex2i(x + 13, y + 23);
+	glEnd();
+
+	glBegin(GL_LINES);
+	glColor3f(0.2f, 0.2f, 0.2f);
+	glVertex2i(x + 12, y + 13);
+	glVertex2i(x + 23, y + 13);
+	glEnd();
+
+}
+
 void desenhaItem1(float x, float y) {
 	glBegin(GL_QUADS);
 	glVertex2i(x, y + 20);
@@ -1906,32 +2294,6 @@ void desenhaItem1(float x, float y) {
 	glVertex2i(x + 10, y);
 	glVertex2i(x + 20, y);
 	glVertex2i(x + 20, y + 30);
-	glEnd();
-}
-
-void desenhaItem2(float x, float y) {
-	glVertex2i(x, y + 20);
-	glVertex2i(x, y + 10);
-	glVertex2i(x + 10, y);
-	glVertex2i(x + 20, y);
-	glVertex2i(x + 30, y + 10);
-	glVertex2i(x + 30, y + 20);
-	glVertex2i(x + 20, y + 30);
-	glVertex2i(x + 10, y + 30);
-	glVertex2i(x, y + 20);
-	glEnd();
-
-	glBegin(GL_POLYGON);
-	glColor3f(1.0f, 0.98f, 0.98f);
-	glVertex2i(x + 3, y + 20);
-	glVertex2i(x + 3, y + 10);
-	glVertex2i(x + 10, y + 3);
-	glVertex2i(x + 20, y + 3);
-	glVertex2i(x + 27, y + 10);
-	glVertex2i(x + 27, y + 20);
-	glVertex2i(x + 20, y + 27);
-	glVertex2i(x + 10, y + 27);
-	glVertex2i(x + 3, y + 20);
 	glEnd();
 }
 // Função que desenha um FASE1
@@ -2455,6 +2817,30 @@ void DesenhaFase1(void)
 				desenhaItem1(itens[i].getX(), itens[i].getY());
 			}
 
+
+
+			glColor3f(0.3f, 0.7f, 0.9f);
+
+
+			if (itens[i].getFase() == 1 && itens[i].getTipo() == 2 && primitiva == FASE1)
+			{
+				desenhaItem2(itens[i].getX(), itens[i].getY());
+			}
+			else if (itens[i].getFase() == 2 && itens[i].getTipo() == 2 && primitiva == FASE2) {
+				desenhaItem2(itens[i].getX(), itens[i].getY());
+			}
+			else if (itens[i].getFase() == 3 && itens[i].getTipo() == 2 && primitiva == FASE3) {
+				desenhaItem2(itens[i].getX(), itens[i].getY());
+			}
+			else if (itens[i].getFase() == 4 && itens[i].getTipo() == 2 && primitiva == FASE4) {
+				desenhaItem2(itens[i].getX(), itens[i].getY());
+			}
+			else if (itens[i].getFase() == 5 && itens[i].getTipo() == 2 && primitiva == FASE5) {
+				desenhaItem2(itens[i].getX(), itens[i].getY());
+			}
+
+
+
 		}
 
 
@@ -2462,6 +2848,25 @@ void DesenhaFase1(void)
 		int contador = 0;
 		int itemColetado = 0;
 
+
+		tempo = tempo + 1;
+
+
+
+
+
+
+
+
+
+
+
+
+
+		/*if(p1.getX()<30)
+		{
+		Timer3();
+		}*/
 
 		for (int i = 0; i < itens.size(); i++) {
 
@@ -2472,7 +2877,6 @@ void DesenhaFase1(void)
 				itens[i].setTipo(6);
 				//itens.erase(itens.begin() + i);
 				itens[i].setColide(0);
-				cout << "contador" << contador;
 				p1.setLife(p1.getLife() + 1);
 
 				break;
@@ -2484,7 +2888,6 @@ void DesenhaFase1(void)
 				itens[i].setTipo(6);
 				//itens.erase(itens.begin() + i);
 				itens[i].setColide(0);
-				cout << "contador" << contador;
 				p1.setLife(p1.getLife() + 1);
 
 				break;
@@ -2496,7 +2899,6 @@ void DesenhaFase1(void)
 				itens[i].setTipo(6);
 				//itens.erase(itens.begin() + i);
 				itens[i].setColide(0);
-				cout << "contador" << contador;
 				p1.setLife(p1.getLife() + 1);
 
 				break;
@@ -2508,7 +2910,6 @@ void DesenhaFase1(void)
 				itens[i].setTipo(6);
 				//itens.erase(itens.begin() + i);
 				itens[i].setColide(0);
-				cout << "contador" << contador;
 				p1.setLife(p1.getLife() + 1);
 
 				break;
@@ -2520,12 +2921,82 @@ void DesenhaFase1(void)
 				itens[i].setTipo(6);
 				//itens.erase(itens.begin() + i);
 				itens[i].setColide(0);
-				cout << "contador" << contador;
 				p1.setLife(p1.getLife() + 1);
 
 				break;
 
 			}
+
+		
+
+			if (itens[i].getFase() == 1 && itens[i].getTipo() == 2 && itens[i].getColide() == 1) {
+				contador++;
+				itemColetado = i;
+				itens[i].setTipo(6);
+				//itens.erase(itens.begin() + i);
+				itens[i].setColide(0);
+				//Timer3();
+				desenhaRelogio = true;
+
+				tempoColisaoItem = tempo;
+
+				//if (tempo=tempoColisaoItem+5)
+				
+
+
+				break;
+
+			}
+			else if (itens[i].getFase() == 2 && itens[i].getTipo() == 2 && itens[i].getColide() == 1) {
+				contador++;
+				itemColetado = i;
+				itens[i].setTipo(6);
+				//itens.erase(itens.begin() + i);
+				itens[i].setColide(0);
+				//Timer3();
+
+				break;
+
+			}
+			else if (itens[i].getFase() == 3 && itens[i].getTipo() == 2 && itens[i].getColide() == 1) {
+				contador++;
+				itemColetado = i;
+				itens[i].setTipo(6);
+				//itens.erase(itens.begin() + i);
+				itens[i].setColide(0);
+				//Timer3();
+
+				break;
+
+
+			}
+			else if (itens[i].getFase() == 4 && itens[i].getTipo() == 2 && itens[i].getColide() == 1) {
+				contador++;
+				itemColetado = i;
+				itens[i].setTipo(6);
+				//itens.erase(itens.begin() + i);
+				itens[i].setColide(0);
+				//Timer3();
+
+				break;
+
+			}
+			else if (itens[i].getFase() == 5 && itens[i].getTipo() == 2 && itens[i].getColide() == 1) {
+				contador++;
+				itemColetado = i;
+				itens[i].setTipo(6);
+				//itens.erase(itens.begin() + i);
+				itens[i].setColide(0);
+				//Timer3();
+
+				break;
+
+			}
+
+
+
+
+
 
 			//cout<< "COLIDE "<< itens[i].getColide()<< "contador" << contador;
 
@@ -2545,6 +3016,15 @@ void DesenhaFase1(void)
 
 
 	p1.vidaMax();
+	if (desenhaRelogio){
+		tempoColisao = tempoColisaoItem + 2000;
+		if (tempo <= tempoColisao) {
+			
+		}
+		else {
+				desenhaRelogio = false;
+		}
+	}
 
 
 
