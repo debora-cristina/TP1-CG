@@ -7,7 +7,6 @@
 #include "Item.h"
 
 class Madeira : public Escopo {
-	Item item;
 
 public:
 
@@ -16,15 +15,6 @@ public:
 		setCaixaY(50);
 		setColide(0);
 	}
-
-	void setItem(Item item) {
-		item = this->item;
-	}
-
-	Item getItem() {
-		return item;
-	}
-
 
 	void colideTeste(Personagem p1)
 	{

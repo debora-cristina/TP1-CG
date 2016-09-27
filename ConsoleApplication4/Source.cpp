@@ -13,6 +13,7 @@
 #include <time.h>
 #include <Mmsystem.h>
 #include <mciapi.h>
+#pragma comment(lib,"Winmm.lib")
 using namespace std;
 
 GLint FPS = 0;
@@ -193,6 +194,8 @@ void GerenciaTeclado(unsigned char key, int x, int y)
 void DesenhaGalinha() {
 
 
+	nomeFase = "fase1.txt";
+	fase = 1;
 	lerArquivoItem(nomeFase);
 
 	p1.setLife(5);
@@ -309,6 +312,7 @@ void DesenhaGalinha() {
 	Sleep(timer2 * 1000);
 	glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
 	primitiva = MENU;
+	PlaySound(TEXT("sons\\Ultraje a Rigor - Marylou.wav"), NULL, SND_ASYNC);
 
 }
 void DesenhaVitoria() {
@@ -906,8 +910,6 @@ void Timer(int value)
 
 
 
-
-
 	if (primitiva == FASE1)
 	{
 
@@ -1096,7 +1098,6 @@ void Timer(int value)
 			}
 		}
 	}
-
 
 
 
@@ -1528,6 +1529,7 @@ void DesenhaAnimacao() {
 
 
 		sprintf(texto, "TO MORTA");
+
 		DesenhaTexto(texto, GLUT_BITMAP_TIMES_ROMAN_24, 280, 380);
 		// Executa os comandos OpenGL
 		glutSwapBuffers();
@@ -2031,7 +2033,7 @@ void lerArquivoItem(char* nomeArquivo)
 
 
 
-void InicializaFase() {
+void InicializaFase(int fase) {
 
 	PlaySound(TEXT("sons\\Ultraje a Rigor - Marylou.wav"), NULL, SND_ASYNC);
 
@@ -2063,7 +2065,7 @@ void InicializaFase() {
 void Inicializa(void)
 {
 
-	InicializaFase();
+	InicializaFase(1);
 
 
 
@@ -2584,9 +2586,6 @@ void DesenhaFase1(void)
 
 
 
-
-
-
 	for (int i = 0; i < caminhoes.size(); i++) {
 		glBegin(GL_QUADS);
 		glColor3f(0.4f, 0.4f, 0.4f);
@@ -2886,6 +2885,12 @@ void DesenhaFase1(void)
 
 	if (p1.getLife() == 0)
 	{
+		gameState = GameStates::GAMEOVER;
+		madeiras.clear();
+		caminhoes.clear();
+		nomeFase = "fase1.txt";
+		InicializaFase(1);
+		fase = 1;
 		itemColetadoFase = false;
 		primitiva = GALINHA;
 	}
@@ -3043,19 +3048,21 @@ void DesenhaFase1(void)
 
 
 
-	if (p1.getY() > 450 && p1.getY() < 500)
+	if (p1.getY() > 450 && p1.getY() < 500 && gameState == GameStates::PLAYING)
 	{
 		p1.setLife(5);
 		gameState = GameStates::WIN;
 		if (gameState == GameStates::WIN && primitiva == FASE1) {
 			gameState = GameStates::PLAYING;
 			primitiva = FASE2;
+			InicializaFase(2);
 			fase = 2;
 
 		}
 		else if (gameState == GameStates::WIN && primitiva == FASE2) {
 			gameState = GameStates::PLAYING;
 			primitiva = FASE3;
+			InicializaFase(3);
 			fase = 3;
 
 		}
@@ -3063,20 +3070,25 @@ void DesenhaFase1(void)
 			gameState = GameStates::PLAYING;
 			primitiva = FASE4;
 			fase = 4;
+			InicializaFase(4);
 
 		}
 		else if (gameState == GameStates::WIN && primitiva == FASE4) {
 			gameState = GameStates::PLAYING;
 			primitiva = FASE5;
 			fase = 5;
+			InicializaFase(5);
 
 		}
 		else if (gameState == GameStates::WIN && primitiva == FASE5) {
 			gameState = GameStates::WINGAME;
 			primitiva = VITORIA;
 			fase = 1;
+			InicializaFase(1);
 		}
+
 		itemColetadoFase = false;
+
 
 		glClearColor(1.0f, 1.0f, 1.0f, 0.0f);
 		glClear(GL_COLOR_BUFFER_BIT);
@@ -3188,8 +3200,6 @@ void DesenhaFase1(void)
 		glutSwapBuffers();
 		glutPostRedisplay();
 		Sleep(timer2 * 1000);
-		InicializaFase();
-
 		glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
 		p1.setX(250);
 		p1.setY(10);
@@ -3425,7 +3435,7 @@ void Desenha(void)
 	// Exibe a posição do mouse na janela
 	//glutPassiveMotionFunc(MoveMouse);
 	//glutMotionFunc(MoveMouseBotaoPressionado);
-	DesenhaTexto(texto, GLUT_BITMAP_TIMES_ROMAN_10, 10, 460);
+	//DesenhaTexto(texto, GLUT_BITMAP_TIMES_ROMAN_10, 10, 460);
 	glutPostRedisplay();
 	glutSwapBuffers();
 
@@ -3664,10 +3674,6 @@ void GerenciaMouse(int button, int state, int x, int y)
 		if (state == GLUT_UP) { ClickON = 0; }
 	}
 
-
-
-
-	sprintf(texto, "Botao pressionado (%d,%d)", x, y);
 
 
 	if (primitiva == MENU || primitiva == MENUPRESS1 || primitiva == MENUPRESS2 || primitiva == MENUPRESS3 || primitiva == MENUPRESS4)
