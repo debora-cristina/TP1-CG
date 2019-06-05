@@ -1,0 +1,1 @@
+Trabalho desenvolvido no CEFET utilizando C# e a biblioteca de 2D gráfica para a disciplina de Computação Gráfica. O trabalho consiste na imitação do jogo ROAD CROSSING, no qual foram criados objetos, configuradas as colisões dos objetos em 2D e utilizando conceitos de estado dentro de um jogo.
